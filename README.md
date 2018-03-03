@@ -4,12 +4,18 @@
 
 ## Project Management
 
-(https://waffle.io/slledru/api-project)
+This project is planned and managed using waffle.io (https://waffle.io/)
+
+Project URL: https://waffle.io/slledru/api-project
 
 ## Web Page Deployed
 
-(https://w-dashboard.slledru.surge.sh)
+This Web Application is deployed with surge.sh (https://surge.sh)
+
+Web Application URL: https://w-dashboard.slledru.surge.sh
 
 ## Project on Github
 
-(https://github.com/slledru/api-project)
+This project is source controlled using github (https://github.com)
+
+Project URL: https://github.com/slledru/api-project
