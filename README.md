@@ -19,3 +19,9 @@ Web Application URL: https://w-dashboard.slledru.surge.sh
 This project is source controlled using github (https://github.com)
 
 Project URL: https://github.com/slledru/api-project
+
+## UI Wireframe
+
+The UI Wireframe is implemented using wireframe.cc (https://wireframe.cc)
+
+Home page: https://wireframe.cc/fwEh4w
