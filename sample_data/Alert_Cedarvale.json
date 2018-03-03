@@ -1,0 +1,121 @@
+
+{
+  "response":
+  {
+    "version":"0.1",
+    "termsofService":"http://www.wunderground.com/weather/api/d/terms.html",
+    "features":
+    {
+      "alerts": 1
+    }
+	},
+  "query_zone": "523",
+	"alerts": [
+		{
+  		"type": "FIR",
+  		"description": "Fire Weather Warning",
+  		"date": "2:20 PM MST on March 3, 2018",
+  		"date_epoch": "1520112000",
+  		"expires": "7:00 PM MST on March 04, 2018",
+  		"expires_epoch": "1520215200",
+  		"tz_short":"MST",
+  		"tz_long":"America/Denver",
+  		"message": "\u000A...Red flag warning remains in effect until 7 PM MST this\u000Aevening...\u000A...Red flag warning remains in effect from 9 am to 7 PM MST\u000ASunday...\u000A\u000A* area and timing...along and east of the Central Mountain chain\u000A through early evening today, and from mid morning until early\u000A evening on Sunday. The most widespread critical conditions will\u000A occur during the afternoon on Sunday. \u000A\u000A* 20 foot winds...southwest 20 to 30 mph with gusts to around 40\u000A mph today. Southwest 25 to 40 mph with gusts between 50 and 60\u000A mph on Sunday, becoming west during the late afternoon. Highest\u000A gusts are expected across the northeast Highlands on Sunday.\u000A \u000A* Relative humidity...minimum values ranging from around 7 to 15\u000A percent today, and 5 to 12 percent on Sunday. \u000A\u000A* Impacts...any fires that develop will likely spread rapidly. \u000A Outdoor burning is not recommended. \u000A\u000APrecautionary/preparedness actions...\u000A\u000APlease advise the appropriate officials or fire crews in the\u000Afield of this red flag warning for Saturday.\u000A\u000APlease advise the appropriate officials or fire crews in the\u000Afield of this red flag warning for Sunday.\u000A\u000A\u000A\u000A\u000A\u000A\u000A",
+  		"phenomena": "FW",
+  		"significance": "W",
+  		"ZONES": [
+    		{
+    		"state":"NM",
+    		"ZONE":"512"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"513"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"514"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"515"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"518"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"527"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"528"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"529"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"531"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"532"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"530"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"519"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"521"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"522"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"523"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"524"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"533"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"539"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"534"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"535"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"536"
+    		},
+    		{
+    		"state":"NM",
+    		"ZONE":"537"
+    		}
+  		],
+  		"StormBased":
+      {
+  		}
+		}
+	]
+}
