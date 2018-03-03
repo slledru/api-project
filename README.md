@@ -24,4 +24,8 @@ Project URL: https://github.com/slledru/api-project
 
 The UI Wireframe is implemented using wireframe.cc (https://wireframe.cc)
 
-Home page: https://wireframe.cc/fwEh4w
+[Home page](https://wireframe.cc/fwEh4w)
+[Search page](https://wireframe.cc/)
+[Planner page](https://wireframe.cc/)
+[Satellite page](https://wireframe.cc/)
+[Alert page](https://wireframe.cc/)
