@@ -1,10 +1,29 @@
-body {
-  font-family: sans-serif, Helvetica, Arial;
+html {
+  position: relative;
+  min-height: 100%;
 }
 
-.navbar-brand {
+body {
+  font-family: sans-serif, Helvetica, Arial;
+  margin-bottom: 60px; /* Margin bottom by footer height */
+}
+
+/* .navbar-brand {
   background-image: url('../images/partlycloudy.gif');
   background-repeat: no-repeat;
   width: 100px;
   margin: auto 0;
+} */
+
+.fa-layers-text {
+  font-size: 12px;
+  text-align: center;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 60px; /* Set the fixed height of the footer here */
+  line-height: 60px; /* Vertically center the text there */
+  background-color: #f5f5f5;
 }
