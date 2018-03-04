@@ -1,3 +1,10 @@
 body {
   font-family: sans-serif, Helvetica, Arial;
 }
+
+.navbar-brand {
+  background-image: url('../images/partlycloudy.gif');
+  background-repeat: no-repeat;
+  width: 100px;
+  margin: auto 0;
+}
