@@ -16,13 +16,14 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-between">
     <a class="navbar-brand" href="index.html">
       <span class="fa-layers fa-fw">
         <i class="fas fa-home fa-2x"></i>
         <span class="fa-layers-text" data-fa-transform="down-28"></span>
       </span>
     </a>
+    <h2>My Weather</h2>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,6 +39,50 @@
       </ul>
     </div>
   </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12" id="alerts"></div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="container">
+          <div class="row">
+            <div class="col border">
+              <h1 id="current-temperature"></h1>
+              <div class="container">
+                <div class="row">
+                  <div class="col">High</div>
+                  <div class="col" id="high-temp"></div>
+                </div>
+                <div class="row">
+                  <div class="col">Low</div>
+                  <div class="col" id="low-temp"></div>
+                </div>
+              </div>
+            </div>
+            <div class="col border">
+              <div id="weather-image">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="container border">
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="container border">
+
+        </div>
+      </div>
+    </div>
+  </div>
   <footer class="footer">
     <div class="container">
       <div class="row align-items-center justify-content-around">
