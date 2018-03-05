@@ -15,10 +15,10 @@ $(document).ready(() => {
 
   function setCurrentLocation(location) {
     supplement.location = location
-    // api.getCurrentCondition(supplement.appKey, location, dom.drawCurrentCondition)
-    // api.getWeatherAlerts(supplement.appKey, location, dom.drawWeatherAlerts)
-    // api.getOneDayForecast(supplement.appKey, location, dom.drawOneDayForecast)
-    // api.getFiveDayForecast(supplement.appKey, location, dom.drawFiveDayForecast)
+    api.getCurrentCondition(supplement.appKey, location, dom.drawCurrentCondition)
+    api.getWeatherAlerts(supplement.appKey, location, dom.drawWeatherAlerts)
+    api.getOneDayForecast(supplement.appKey, location, dom.drawOneDayForecast)
+    api.getFiveDayForecast(supplement.appKey, location, dom.drawFiveDayForecast)
   }
 
   function initialize() {
