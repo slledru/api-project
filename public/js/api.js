@@ -1,5 +1,5 @@
 const api = {
-  urlStart: 'http://api.wunderground.com/api/',
+  urlStart: 'https://crossorigin.me/http://api.wunderground.com/api/',
   getWeatherInfo: function(path, parseFunc, drawFunc) {
     const url = `${this.urlStart}${path}`
     const $xhr = $.ajax({
