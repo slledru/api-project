@@ -22,9 +22,16 @@ body {
   background-color: #f5f5f5;
 }
 
-#alerts {
+.alert {
   font-weight: bold;
   color: tomato;
+}
+.no-alert {
+  font-weight: normal;
+  color: black;
+}
+#alerts {
+  margin: 0;
 }
 
 #weather-image {
