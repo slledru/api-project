@@ -1,41 +1,41 @@
 
 {
   "response": {
-  "version":"0.1",
-  "termsofService":"http://www.wunderground.com/weather/api/d/terms.html",
-  "features": {
-  "conditions": 1
-  }
-	}
-  ,	"current_observation": {
+    "version":"0.1",
+    "termsofService":"http://www.wunderground.com/weather/api/d/terms.html",
+    "features": {
+      "conditions": 1
+    }
+	},
+  "current_observation": {
 		"image": {
-		"url":"http://icons.wxug.com/graphics/wu2/logo_130x80.png",
-		"title":"Weather Underground",
-		"link":"http://www.wunderground.com"
+  		"url":"http://icons.wxug.com/graphics/wu2/logo_130x80.png",
+  		"title":"Weather Underground",
+  		"link":"http://www.wunderground.com"
 		},
 		"display_location": {
-		"full":"Boulder, CO",
-		"city":"Boulder",
-		"state":"CO",
-		"state_name":"Colorado",
-		"country":"US",
-		"country_iso3166":"US",
-		"zip":"80301",
-		"magic":"1",
-		"wmo":"99999",
-		"latitude":"40.04999924",
-		"longitude":"-105.20999908",
-		"elevation":"1585.0"
+  		"full":"Boulder, CO",
+  		"city":"Boulder",
+  		"state":"CO",
+  		"state_name":"Colorado",
+  		"country":"US",
+  		"country_iso3166":"US",
+  		"zip":"80301",
+  		"magic":"1",
+  		"wmo":"99999",
+  		"latitude":"40.04999924",
+  		"longitude":"-105.20999908",
+  		"elevation":"1585.0"
 		},
 		"observation_location": {
-		"full":"63rd St and Jay Rd, Boulder, Colorado",
-		"city":"63rd St and Jay Rd, Boulder",
-		"state":"Colorado",
-		"country":"US",
-		"country_iso3166":"US",
-		"latitude":"40.055550",
-		"longitude":"-105.208595",
-		"elevation":"5202 ft"
+  		"full":"63rd St and Jay Rd, Boulder, Colorado",
+  		"city":"63rd St and Jay Rd, Boulder",
+  		"state":"Colorado",
+  		"country":"US",
+  		"country_iso3166":"US",
+  		"latitude":"40.055550",
+  		"longitude":"-105.208595",
+  		"elevation":"5202 ft"
 		},
 		"estimated": {
 		},

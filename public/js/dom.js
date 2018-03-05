@@ -4,13 +4,21 @@ const htmlTags = {
   },
   getDivTags: function(text) {
     return `<div>${text}</div>`
+  },
+  getTempRow: function(label, temp) {
+    return `<div class="row">
+          <div class="col-2">&nbsp;</div>
+          <div class="col-4">${label}</div>
+          <div class="col-5">${temp}°F</div>
+        </div>`
   }
 }
 const dom = {
   drawCurrentCondition: function(data) {
     // console.log('drawCurrentCondition');
-    // console.log(data);
+    console.log(data);
     $('#current-temperature').text(`${data.temp_f}°F`)
+    $('#current-location').text(data.full_location)
     const imageTag = $(htmlTags.getImageTag(data.icon_url, 100, 100))
     imageTag.addClass('center-image')
     $('#weather-image').append(imageTag)
@@ -43,9 +51,9 @@ const dom = {
   },
   drawOneDayForecast: function(data) {
     // console.log('drawOneDayForecast');
-    console.log(data);
-    $('#high-temp').text(`${data.simple.high.fahrenheit}°F`)
-    $('#low-temp').text(`${data.simple.low.fahrenheit}°F`)
+    // console.log(data);
+    $('#high-low-temp').append($(htmlTags.getTempRow('High', data.simple.high.fahrenheit)))
+    $('#high-low-temp').append($(htmlTags.getTempRow('Low', data.simple.low.fahrenheit)))
     $('#today').append($(htmlTags.getDivTags(data.simple.date.pretty)))
     $('#today').append($(htmlTags.getDivTags(data.verbose.fcttext)))
   },

@@ -11,7 +11,11 @@ const parse = {
       wind_string,
       relative_humidity
     } = data.current_observation
+    const {
+      full: full_location
+    } = data.current_observation.display_location
     return {
+      full_location,
       observation_time,
       feelslike_f,
       feelslike_c,
