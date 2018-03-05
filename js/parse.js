@@ -50,12 +50,14 @@ const parse = {
     const {
       conditions,
       high,
-      low
+      low,
+      date
     } = forecast
     return {
       conditions,
       high,
-      low
+      low,
+      date
     }
   },
   parseTextForecast: function(forecast) {
@@ -73,6 +75,7 @@ const parse = {
     }
   },
   parseForecast: function(forecast, index) {
+    console.log(forecast);
     const result = {}
     if (Array.isArray(forecast.simpleforecast.forecastday) &&
         index < forecast.simpleforecast.forecastday.length) {

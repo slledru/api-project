@@ -1,7 +1,19 @@
+const htmlTags = {
+  getImageTag: function(src, width, height) {
+    return `<img src="${src}" width="${width}px" height="${height}px">`
+  },
+  getDivTags: function(text) {
+    return `<div>${text}</div>`
+  }
+}
 const dom = {
   drawCurrentCondition: function(data) {
     // console.log('drawCurrentCondition');
     // console.log(data);
+    $('#current-temperature').text(`${data.temp_f}°F`)
+    const imageTag = $(htmlTags.getImageTag(data.icon_url, 100, 100))
+    imageTag.addClass('center-image')
+    $('#weather-image').append(imageTag)
   },
   drawWeatherAlerts: function(data) {
     if (Array.isArray(data)) {
@@ -17,11 +29,13 @@ const dom = {
         $('#alerts').removeClass('no-alert')
         $('#alerts').addClass('alert')
       } else {
+        $('#alerts').text('No Active Alerts')
         $('#alert-btn').attr('disabled', true)
         $('#alerts').addClass('no-alert')
         $('#alerts').removeClass('alert')
       }
     } else {
+      $('#alerts').text('No Active Alerts')
       $('#alert-btn').attr('disabled', true)
       $('#alerts').addClass('no-alert')
       $('#alerts').removeClass('alert')
@@ -29,7 +43,11 @@ const dom = {
   },
   drawOneDayForecast: function(data) {
     // console.log('drawOneDayForecast');
-    // console.log(data);
+    console.log(data);
+    $('#high-temp').text(`${data.simple.high.fahrenheit}°F`)
+    $('#low-temp').text(`${data.simple.low.fahrenheit}°F`)
+    $('#today').append($(htmlTags.getDivTags(data.simple.date.pretty)))
+    $('#today').append($(htmlTags.getDivTags(data.verbose.fcttext)))
   },
   drawFiveDayForecast: function(data) {
     // console.log('drawFiveDayForecast');
