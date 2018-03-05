@@ -37,10 +37,6 @@ body {
 #weather-image {
   margin: auto;
 }
-.center-image {
-  margin: auto;
-}
-
 #today, #five-day {
   margin-top: 18px;
 }

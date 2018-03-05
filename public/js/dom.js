@@ -16,11 +16,13 @@ const htmlTags = {
 const dom = {
   drawCurrentCondition: function(data) {
     // console.log('drawCurrentCondition');
-    console.log(data);
+    // console.log(data);
     $('#current-temperature').text(`${data.temp_f}°F`)
-    $('#current-location').text(data.full_location)
+    const locationTag = $(htmlTags.getDivTags(data.full_location))
+    $('#weather-image').append(locationTag)
     const imageTag = $(htmlTags.getImageTag(data.icon_url, 100, 100))
-    imageTag.addClass('center-image')
+    imageTag.addClass('img-fluid')
+    imageTag.addClass('img-thumbnail')
     $('#weather-image').append(imageTag)
   },
   drawWeatherAlerts: function(data) {
