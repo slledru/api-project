@@ -50,7 +50,7 @@ const parse = {
     }
     return alerts
   },
-  parseSimpleForecast: function(forecast) {
+  parseSimple: function(forecast) {
     const {
       conditions,
       high,
@@ -64,7 +64,7 @@ const parse = {
       date
     }
   },
-  parseTextForecast: function(forecast) {
+  parseText: function(forecast) {
     const {
       fcttext,
       fcttext_metric,
@@ -78,28 +78,36 @@ const parse = {
       title
     }
   },
-  parseForecast: function(forecast, index) {
-    console.log(forecast);
-    const result = {}
-    if (Array.isArray(forecast.simpleforecast.forecastday) &&
-        index < forecast.simpleforecast.forecastday.length) {
-      result.simple = parse.parseSimpleForecast(forecast.simpleforecast.forecastday[index])
+  parseSimpleForecasts: function(forecast, index) {
+    let result = {}
+    if (Array.isArray(forecast.forecastday) &&
+        index < forecast.forecastday.length) {
+      result = parse.parseSimple(forecast.forecastday[index])
     }
-    if (Array.isArray(forecast.txt_forecast.forecastday) &&
-        index < forecast.txt_forecast.forecastday.length) {
-      result.verbose = parse.parseTextForecast(forecast.txt_forecast.forecastday[index])
+    return result
+  },
+  parseTextForecasts: function(forecast, index) {
+    let result = {}
+    if (Array.isArray(forecast.forecastday) &&
+        index < forecast.forecastday.length) {
+      result = parse.parseText(forecast.forecastday[index])
     }
     return result
   },
 
   parseOneDayForecast: function(data) {
-    const result = parse.parseForecast(data.forecast, 0)
-    return result
+    const simple = parse.parseSimpleForecasts(data.forecast.simpleforecast, 0)
+    const verbose = parse.parseTextForecasts(data.forecast.txt_forecast, 0)
+    return {
+      simple,
+      verbose
+    }
   },
   parseFiveDayForecast: function(data) {
+    console.log(data);
     const result = []
     for (let i = 0; i < 10; i++) {
-      result.push(parse.parseForecast(data.forecast, i))
+      //result.push(parse.parseForecast(data.forecast, i))
     }
     return result
   },
