@@ -1,16 +1,17 @@
 $(document).ready(() => {
-  if ('geolocation' in navigator) {
-    try {
-      navigator.geolocation.getCurrentPosition((position) => {
-        api.getCurrentLocation(supplement.appKey, position.coords.latitude,
-          position.coords.longitude, setCurrentLocation)
-      })
-    } catch (e) {
-      setCurrentLocation(supplement.location)
-    }
-  } else {
-    setCurrentLocation(supplement.location)
-  }
+  // if ('geolocation' in navigator) {
+  //   try {
+  //     navigator.geolocation.getCurrentPosition((position) => {
+  //       api.getCurrentLocation(supplement.appKey, position.coords.latitude,
+  //         position.coords.longitude, setCurrentLocation)
+  //     })
+  //   } catch (e) {
+  //     setCurrentLocation(supplement.location)
+  //   }
+  // } else {
+  //   setCurrentLocation(supplement.location)
+  // }
+  setCurrentLocation(supplement.location)
 
   function setCurrentLocation(location) {
     api.getCurrentCondition(supplement.appKey, location, dom.drawCurrentCondition)
