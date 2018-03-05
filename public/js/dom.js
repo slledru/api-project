@@ -11,6 +11,15 @@ const htmlTags = {
           <div class="col-4">${label}</div>
           <div class="col-5">${temp}°F</div>
         </div>`
+  },
+  getDayColumn: function(data) {
+    const date = `${data.simple.date.month}/${data.simple.date.day}`
+    return `<div class="col-2">
+              ${htmlTags.getDivTags(date)}
+              ${htmlTags.getImageTag(data.day.icon_url, 25, 25)}
+              ${htmlTags.getImageTag(data.night.icon_url, 25, 25)}
+              ${htmlTags.getDivTags(data.simple.conditions)}
+            </div>`
   }
 }
 const dom = {
@@ -62,6 +71,12 @@ const dom = {
   drawFiveDayForecast: function(data) {
     // console.log('drawFiveDayForecast');
     // console.log(data);
+    $('#five-day-title').text('Five Day Forecast')
+    if (Array.isArray(data)) {
+      for (let i = 0; i < data.length; i++) {
+        $('#future-forecast').append($(htmlTags.getDayColumn(data[i])));
+      }
+    }
   },
   drawHistoricalSummary: function(data) {
     // console.log('drawHistoricalSummary');

@@ -104,11 +104,19 @@ const parse = {
     }
   },
   parseFiveDayForecast: function(data) {
-    console.log(data);
     const result = []
-    for (let i = 0; i < 10; i++) {
-      //result.push(parse.parseForecast(data.forecast, i))
+    let simpleCount = data.forecast.simpleforecast.forecastday.length / 2
+    const verboseCount = data.forecast.txt_forecast.forecastday.length / 2
+    if (simpleCount * 2 > verboseCount) {
+      sampleCount = verboseCount / 2
     }
+    for (let i = 0; i < simpleCount; i++) {
+      const simple = parse.parseSimpleForecasts(data.forecast.simpleforecast, i)
+      const day = parse.parseTextForecasts(data.forecast.txt_forecast, i * 2)
+      const night = parse.parseTextForecasts(data.forecast.txt_forecast, i * 2 + 1)
+      result.push({ simple, day, night})
+    }
+    console.log(result)
     return result
   },
   parseHistoricalSummary: function(data) {

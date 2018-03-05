@@ -8,6 +8,9 @@ body {
   margin-bottom: 60px; /* Margin bottom by footer height */
 }
 
+div {
+  font-size: 11px;
+}
 .fa-layers-text {
   font-size: 12px;
   text-align: center;
@@ -32,11 +35,14 @@ body {
 }
 #alerts {
   margin: 0;
+  font-size: 14px;
 }
-
 #weather-image {
   margin: auto;
 }
-#today, #five-day {
+#today {
   margin-top: 18px;
+}
+#five-day {
+  margin-top: 25px;
 }
