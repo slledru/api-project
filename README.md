@@ -10,9 +10,9 @@ Project URL: https://waffle.io/slledru/api-project
 
 ## Web Page Deployed
 
-This Web Application is deployed with surge.sh (https://surge.sh)
+This Web Application is deployed with Firebase (https://console.firebase.google.com/)
 
-Web Application URL: https://w-dashboard.slledru.surge.sh
+Web Application URL: https://my-weather-4d596.firebaseapp.com
 
 ## Project on Github
 
