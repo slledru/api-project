@@ -5,7 +5,7 @@ $(document).ready(() => {
         api.getCurrentLocation(supplement.appKey, position.coords.latitude,
           position.coords.longitude, setCurrentLocation)
       })
-    } catch {
+    } catch (e) {
       setCurrentLocation(supplement.location)
     }
   } else {
