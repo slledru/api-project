@@ -27,6 +27,16 @@ const htmlTags = {
               ${htmlTags.getImageTag(data.night.icon_url, 25, 25)}
               ${htmlTags.getDivTags(data.simple.conditions)}
             </div>`
+  },
+  getAlertRow: function(alert) {
+    return `<div class="row">
+              <div class="col-12">
+                <div class="alert-title">${alert.description}</div>
+                <div class="alert-line">Expires on ${alert.expires}</div>
+                <div class="alert-line">Issued on ${alert.date}</div>
+                <div class="alert-line">${alert.message}</div>
+              </div>
+            </div>`
   }
 }
 const dom = {
@@ -65,6 +75,16 @@ const dom = {
       $('#alert-btn').attr('disabled', true)
       $('#alerts').addClass('no-alert')
       $('#alerts').removeClass('alert')
+    }
+  },
+  drawWeatherDetailAlerts: function(data) {
+    if (Array.isArray(data)) {
+      if (data.length > 0) {
+        $('#alert-details').empty()
+        for (let i = 0; i < data.length; i++) {
+          $('#alert-details').append($(htmlTags.getAlertRow(data[i])))
+        }
+      }
     }
   },
   drawOneDayForecast: function(data) {

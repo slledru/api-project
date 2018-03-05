@@ -33,6 +33,7 @@ const parse = {
       for (const alert of data.alerts) {
         const {
           description,
+          date,
           expires,
           message,
           significance,
@@ -41,6 +42,7 @@ const parse = {
 
         alerts.push({
           description,
+          date,
           expires,
           message,
           significance,
@@ -124,5 +126,8 @@ const parse = {
   },
   parseGeoLookup: function(data) {
     return `${data.location.state}/${data.location.city}`
+  },
+  parseWeatherDetailAlerts: function(data) {
+
   }
 }

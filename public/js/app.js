@@ -14,11 +14,11 @@ $(document).ready(() => {
   initialize()
 
   function setCurrentLocation(location) {
-    // location = 'CA/San_Francisco'
-    api.getCurrentCondition(supplement.appKey, location, dom.drawCurrentCondition)
-    api.getWeatherAlerts(supplement.appKey, location, dom.drawWeatherAlerts)
-    api.getOneDayForecast(supplement.appKey, location, dom.drawOneDayForecast)
-    api.getFiveDayForecast(supplement.appKey, location, dom.drawFiveDayForecast)
+    supplement.location = location
+    // api.getCurrentCondition(supplement.appKey, location, dom.drawCurrentCondition)
+    // api.getWeatherAlerts(supplement.appKey, location, dom.drawWeatherAlerts)
+    // api.getOneDayForecast(supplement.appKey, location, dom.drawOneDayForecast)
+    // api.getFiveDayForecast(supplement.appKey, location, dom.drawFiveDayForecast)
   }
 
   function initialize() {
@@ -67,6 +67,7 @@ $(document).ready(() => {
     $('#planner-page').addClass('collapse')
     $('#radar-page').addClass('collapse')
     $('#alerts-page').removeClass('collapse')
+    api.getWeatherAlerts(supplement.appKey, supplement.location, dom.drawWeatherDetailAlerts)
   }
   function displayOptionsPage(event) {
     event.preventDefault()
