@@ -2,6 +2,11 @@
 
 # Project using REST API
 
+The application is initially design for iPhone using Bootstrap.
+It uses geolocation feature on the iPhone or the browser.
+When using iPhone, make sure to turn on Location Services for Safari Websites.
+You may find Location Services in Settings->Privacy.
+
 ## Project Management
 
 This project is planned and managed using waffle.io (https://waffle.io/)
