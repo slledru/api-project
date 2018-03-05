@@ -1,9 +1,13 @@
 $(document).ready(() => {
   if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition((position) => {
-      api.getCurrentLocation(supplement.appKey, position.coords.latitude,
-        position.coords.longitude, setCurrentLocation)
-    })
+    try {
+      navigator.geolocation.getCurrentPosition((position) => {
+        api.getCurrentLocation(supplement.appKey, position.coords.latitude,
+          position.coords.longitude, setCurrentLocation)
+      })
+    } catch {
+      setCurrentLocation(supplement.location)
+    }
   } else {
     setCurrentLocation(supplement.location)
   }
