@@ -31,5 +31,9 @@ const api = {
   },
   getHistoricalSummary: function() {
 
+  },
+  getCurrentLocation: function(appKey, lat, lon, draw) {
+    const path = `${appKey}/geolookup/q/${lat},${lon}.json`
+    api.getWeatherInfo(path, parse.parseGeoLookup, draw)
   }
 }

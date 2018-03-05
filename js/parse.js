@@ -98,5 +98,8 @@ const parse = {
   },
   parseHistoricalSummary: function(data) {
     console.log(data);
+  },
+  parseGeoLookup: function(data) {
+    return `${data.location.state}/${data.location.city}`
   }
 }

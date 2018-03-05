@@ -4,8 +4,6 @@ const dom = {
     // console.log(data);
   },
   drawWeatherAlerts: function(data) {
-    console.log('drawWeatherAlerts');
-    console.log(data);
     if (Array.isArray(data)) {
       if (data.length > 0) {
         let text = '';
