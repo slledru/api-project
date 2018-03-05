@@ -14,6 +14,7 @@ $(document).ready(() => {
   initialize()
 
   function setCurrentLocation(location) {
+    // location = 'CA/San_Francisco'
     api.getCurrentCondition(supplement.appKey, location, dom.drawCurrentCondition)
     api.getWeatherAlerts(supplement.appKey, location, dom.drawWeatherAlerts)
     api.getOneDayForecast(supplement.appKey, location, dom.drawOneDayForecast)
