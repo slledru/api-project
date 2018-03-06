@@ -1,21 +1,28 @@
 $(document).ready(() => {
-  if ('geolocation' in navigator) {
-    try {
-      navigator.geolocation.getCurrentPosition((position) => {
-        api.getCurrentLocation(supplement.appKey, position.coords.latitude,
-          position.coords.longitude, setCurrentLocation)
-      })
-    } catch (e) {
+  storage.getStorage();
+  let lastLocation = storage.getLastLocation()
+  if (lastLocation === null) {
+    if ('geolocation' in navigator) {
+      try {
+        navigator.geolocation.getCurrentPosition((position) => {
+          api.getCurrentLocation(supplement.appKey, position.coords.latitude,
+            position.coords.longitude, setCurrentLocation)
+        })
+      } catch (e) {
+        setCurrentLocation(supplement.location)
+      }
+    } else {
       setCurrentLocation(supplement.location)
     }
   } else {
-    setCurrentLocation(supplement.location)
+    setCurrentLocation(lastLocation)
   }
   setupEventHandler()
   setupDatePicker()
 
   function setCurrentLocation(location) {
     supplement.location = location
+    storage.setLastLocation(location)
     //retrieveWeatherInformation(location)
   }
 
