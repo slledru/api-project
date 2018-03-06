@@ -69,7 +69,7 @@ $(document).ready(() => {
     $('#locationModal').modal('show')
     setTimeout(() => {
       $('#location').focus()
-    }, 10)
+    }, 500)
     displayPage('home')
   }
   function displayPlannerPage(event) {
@@ -88,6 +88,7 @@ $(document).ready(() => {
     api.getWeatherAlerts(supplement.appKey, supplement.location, dom.drawWeatherDetailAlerts)
   }
   function displayPage(pageName) {
+    // console.log(`switching to ${pageName}`);
     $('#home-page').addClass('collapse')
     $('#search-page').addClass('collapse')
     $('#planner-page').addClass('collapse')
