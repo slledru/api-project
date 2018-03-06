@@ -1,7 +1,8 @@
 const api = {
-  urlStart: 'https://crossorigin.me/https://api.wunderground.com/api/',
+  urlStart: 'https://crossorigin.me/',
+  weatherUrl: 'https://api.wunderground.com/api/',
   getWeatherInfo: function(path, parseFunc, drawFunc) {
-    const url = `${this.urlStart}${path}`
+    const url = `${this.urlStart}${this.weatherUrl}${path}`
     const $xhr = $.ajax({
       url: url,
       type: 'GET',
@@ -35,5 +36,9 @@ const api = {
   getCurrentLocation: function(appKey, lat, lon, draw) {
     const path = `${appKey}/geolookup/q/${lat},${lon}.json`
     api.getWeatherInfo(path, parse.parseGeoLookup, draw)
+  },
+  getRadarImage: function(appKey, location, draw) {
+    const path = `${this.weatherUrl}${appKey}/animatedradar/q/${location}.gif?newmaps=1&timelabel=1&timelabel.y=10&num=10&delay=50`
+    draw(path, location)
   }
 }

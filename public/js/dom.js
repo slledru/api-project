@@ -9,6 +9,9 @@ const htmlTags = {
     }
     return `<img src="${src}" width="${width}px" height="${height}px">`
   },
+  getRadarImageTag: function(src) {
+    return `<img src="${src}" width="300px" height="300px">`
+  },
   getDivTags: function(text) {
     return `<div>${text}</div>`
   },
@@ -35,6 +38,15 @@ const htmlTags = {
                 <div class="alert-line">Expires on ${alert.expires}</div>
                 <div class="alert-line">Issued on ${alert.date}</div>
                 <div class="alert-line">${alert.message}</div>
+              </div>
+            </div>`
+  },
+  getRadarImageRow: function(src, location) {
+    const image = htmlTags.getRadarImageTag(src)
+    return `<div class="row">
+              <div class="col-12">
+                <div class="radar-location">${location}</div>
+                <div class="radar-image">${image}</div>
               </div>
             </div>`
   }
@@ -108,5 +120,8 @@ const dom = {
   drawHistoricalSummary: function(data) {
     // console.log('drawHistoricalSummary');
     // console.log(data);
+  },
+  drawRadarImage: function(data, location) {
+    $('#radar-image').append($(htmlTags.getRadarImageRow(data, location)))
   }
 }

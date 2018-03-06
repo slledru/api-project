@@ -59,6 +59,7 @@ $(document).ready(() => {
     $('#planner-page').addClass('collapse')
     $('#radar-page').removeClass('collapse')
     $('#alerts-page').addClass('collapse')
+    api.getRadarImage(supplement.appKey, supplement.location, dom.drawRadarImage)
   }
   function displayAlertsPage(event) {
     event.preventDefault()

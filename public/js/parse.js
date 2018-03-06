@@ -126,8 +126,5 @@ const parse = {
   },
   parseGeoLookup: function(data) {
     return `${data.location.state}/${data.location.city}`
-  },
-  parseWeatherDetailAlerts: function(data) {
-
   }
 }
