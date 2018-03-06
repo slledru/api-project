@@ -16,18 +16,7 @@ $(document).ready(() => {
 
   function setCurrentLocation(location) {
     supplement.location = location
-    const {
-      drawCurrentCondition,
-      drawWeatherAlerts,
-      drawOneDayForecast,
-      drawFiveDayForecast
-    } = dom
-    retrieveWeatherInformation(location, {
-      drawCurrentCondition,
-      drawWeatherAlerts,
-      drawOneDayForecast,
-      drawFiveDayForecast
-    })
+    //retrieveWeatherInformation(location)
   }
 
   function setupDatePicker() {
@@ -54,11 +43,15 @@ $(document).ready(() => {
     $('#location-btn').click(selectLocation)
     $('#date-range-btn').click(selectDateRange)
   }
-  function retrieveWeatherInformation(location, funcs) {
-    api.getCurrentCondition(supplement.appKey, location, funcs.drawCurrentCondition)
-    api.getWeatherAlerts(supplement.appKey, location, funcs.drawWeatherAlerts)
-    api.getOneDayForecast(supplement.appKey, location, funcs.drawOneDayForecast)
-    api.getFiveDayForecast(supplement.appKey, location, funcs.drawFiveDayForecast)
+  function retrieveWeatherInformation(location) {
+    try {
+      api.getCurrentCondition(supplement.appKey, location, dom.drawCurrentCondition)
+      api.getWeatherAlerts(supplement.appKey, location, dom.drawWeatherAlerts)
+      api.getOneDayForecast(supplement.appKey, location, dom.drawOneDayForecast)
+      api.getFiveDayForecast(supplement.appKey, location, dom.drawFiveDayForecast)
+    } catch (e) {
+      console.log(e);
+    }
     dom.drawWaitCursor();
   }
   function displayHomePage(event) {
@@ -67,10 +60,15 @@ $(document).ready(() => {
   }
   function displaySearchPage(event) {
     event.preventDefault()
+    $('#locationModal').modal('show')
+    setTimeout(() => {
+      $('#location').focus()
+    }, 10)
     displayPage('search')
   }
   function displayPlannerPage(event) {
     event.preventDefault()
+    $('#dateRangeModal').modal('show')
     displayPage('planner')
   }
   function displayRadarPage(event) {
@@ -110,10 +108,20 @@ $(document).ready(() => {
   }
   function selectLocation(event) {
     event.preventDefault()
-    console.log(`selectLocation: ${$('#location').val()}`);
+    let location = $('#location').val()
+    if (location.length > 0) {
+      location = location.replace(/ /g, '_')
+      console.log(location)
+      supplement.location = location
+      $('#locationModal').modal('hide')
+      retrieveWeatherInformation(supplement.location)
+    } else {
+      $('#location').focus()
+    }
   }
   function selectDateRange(event) {
     event.preventDefault()
     console.log(`selectDateRange: ${$('#start-date').val()} to ${$('#end-date').val()}`);
+    $('#dateRangeModal').modal('hide')
   }
 })

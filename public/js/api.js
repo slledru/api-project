@@ -8,8 +8,12 @@ const api = {
       type: 'GET',
     })
     $xhr.done((data, textStatus, jqXHR ) => {
-      const result = parseFunc(data)
-      drawFunc(result)
+      try {
+        const result = parseFunc(data)
+        drawFunc(result)
+      } catch (e) {
+        console.log(e);
+      }
     }).fail((data, textStatus, jqXHR ) => {
       console.log(` failed: ${data}  status: ${textStatus}`);
     })
