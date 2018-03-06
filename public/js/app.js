@@ -131,6 +131,7 @@ $(document).ready(() => {
     console.log(`selectDateRange: ${$('#start-date').val()} to ${$('#end-date').val()}`);
     $('#dateRangeModal').modal('hide')
     rotateScreen('planner')
+    drawPlannerChart()
   }
   function resetScreenOrientation(pageName) {
     switch (pageName) {
@@ -159,9 +160,9 @@ $(document).ready(() => {
         break
       case 'planner':
         // $('#planner-page').addClass('rotate-90')
-        $('#chart').css('transform', 'rotate(-90deg)')
-        $('#chart').css('-webkit-transform', 'rotate(-90deg)')
-        $('#chart').addClass('planner-chart')
+        $('#chart-segment').css('transform', 'rotate(-90deg)')
+        $('#chart-segment').css('-webkit-transform', 'rotate(-90deg)')
+        $('#chart-segment').addClass('planner-chart')
         break
       case 'radar':
         $('#radar-page').addClass('rotate-90')
@@ -174,5 +175,56 @@ $(document).ready(() => {
         $('#home-page').addClass('rotate-90')
         break
     }
+  }
+  function drawPlannerChart() {
+    var ctx = document.getElementById("chart").getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+            datasets: [{
+                label: 'High Temperature (°F)',
+                data: [32, 29, 50, 54, 60, 67, 80, 95, 78, 65, 40, 35],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)',
+                    'rgba(255, 99, 132, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)'
+                ],
+                borderColor: [
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)',
+                  'rgba(255,99,132,1)',
+                  'rgba(54, 162, 235, 1)',
+                  'rgba(255, 206, 86, 1)',
+                  'rgba(75, 192, 192, 1)',
+                  'rgba(153, 102, 255, 1)',
+                  'rgba(255, 159, 64, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
   }
 })
