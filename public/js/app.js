@@ -1,4 +1,5 @@
 $(document).ready(() => {
+  dom.drawWaitCursor();
   storage.getStorage();
   let lastLocation = storage.getLastLocation()
   if (lastLocation === null) {
@@ -50,7 +51,6 @@ $(document).ready(() => {
     $('#date-range-btn').click(selectDateRange)
   }
   function retrieveWeatherInformation(location) {
-    dom.drawWaitCursor();
     try {
       api.getCurrentCondition(supplement.appKey, location, dom.drawCurrentCondition)
       api.getWeatherAlerts(supplement.appKey, location, dom.drawWeatherAlerts)
@@ -119,10 +119,10 @@ $(document).ready(() => {
     event.preventDefault()
     let location = $('#location').val()
     if (location.length > 0) {
-      console.log(location)
       $('#locationModal').modal('hide')
       supplement.location = location
       storage.setLastLocation(location)
+      dom.drawWaitCursor();
       retrieveWeatherInformation(location)
     } else {
       $('#location').focus()
