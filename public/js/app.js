@@ -186,38 +186,10 @@ $(document).ready(() => {
         datasets:
         [
           {
-            label: 'High Temperature (°F)',
+            label: 'High (°F)',
             data: [32, 29, 50, 54, 60, 67, 80, 95, 78, 65, 40, 35],
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             borderColor: 'rgba(255,99,132,1)',
-            // backgroundColor: [
-            //     'rgba(255, 99, 132, 0.2)',
-            //     'rgba(54, 162, 235, 0.2)',
-            //     'rgba(255, 206, 86, 0.2)',
-            //     'rgba(75, 192, 192, 0.2)',
-            //     'rgba(153, 102, 255, 0.2)',
-            //     'rgba(255, 159, 64, 0.2)',
-            //     'rgba(255, 99, 132, 0.2)',
-            //     'rgba(54, 162, 235, 0.2)',
-            //     'rgba(255, 206, 86, 0.2)',
-            //     'rgba(75, 192, 192, 0.2)',
-            //     'rgba(153, 102, 255, 0.2)',
-            //     'rgba(255, 159, 64, 0.2)'
-            // ],
-            // borderColor: [
-            //   'rgba(255,99,132,1)',
-            //   'rgba(54, 162, 235, 1)',
-            //   'rgba(255, 206, 86, 1)',
-            //   'rgba(75, 192, 192, 1)',
-            //   'rgba(153, 102, 255, 1)',
-            //   'rgba(255, 159, 64, 1)',
-            //   'rgba(255,99,132,1)',
-            //   'rgba(54, 162, 235, 1)',
-            //   'rgba(255, 206, 86, 1)',
-            //   'rgba(75, 192, 192, 1)',
-            //   'rgba(153, 102, 255, 1)',
-            //   'rgba(255, 159, 64, 1)'
-            // ],
             borderWidth: 1
           }
         ]
@@ -229,7 +201,7 @@ $(document).ready(() => {
           yAxes:
           [
             {
-              stacked: true,
+              stacked: false,
               ticks:
               {
                 beginAtZero:true
@@ -239,11 +211,57 @@ $(document).ready(() => {
           xAxes:
           [
             {
-              stacked: true
+              stacked: false
             }
           ]
         }
       }
     })
+
+    var newDataset = {
+      label: 'Low (°F)',
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 1,
+      data: [15, 5, 26, 34, 46, 50, 65, 70, 54, 43, 30, 26],
+     }
+
+     // You add the newly created dataset to the list of `data`
+     myChart.data.datasets.push(newDataset);
+
+     // You update the chart to take into account the new dataset
+     myChart.update();
   }
 })
+
+
+
+// colors
+//  backgroundColor: [
+//     'rgba(255, 99, 132, 0.2)',
+//     'rgba(54, 162, 235, 0.2)',
+//     'rgba(255, 206, 86, 0.2)',
+//     'rgba(75, 192, 192, 0.2)',
+//     'rgba(153, 102, 255, 0.2)',
+//     'rgba(255, 159, 64, 0.2)',
+//     'rgba(255, 99, 132, 0.2)',
+//     'rgba(54, 162, 235, 0.2)',
+//     'rgba(255, 206, 86, 0.2)',
+//     'rgba(75, 192, 192, 0.2)',
+//     'rgba(153, 102, 255, 0.2)',
+//     'rgba(255, 159, 64, 0.2)'
+// ],
+// borderColor: [
+//   'rgba(255,99,132,1)',
+//   'rgba(54, 162, 235, 1)',
+//   'rgba(255, 206, 86, 1)',
+//   'rgba(75, 192, 192, 1)',
+//   'rgba(153, 102, 255, 1)',
+//   'rgba(255, 159, 64, 1)',
+//   'rgba(255,99,132,1)',
+//   'rgba(54, 162, 235, 1)',
+//   'rgba(255, 206, 86, 1)',
+//   'rgba(75, 192, 192, 1)',
+//   'rgba(153, 102, 255, 1)',
+//   'rgba(255, 159, 64, 1)'
+// ],
