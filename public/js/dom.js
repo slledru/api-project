@@ -55,6 +55,7 @@ const dom = {
   drawCurrentCondition: function(data) {
     // console.log('drawCurrentCondition');
     // console.log(data);
+    $('#weather-image').empty()
     $('#current-temperature').text(`${data.temp_f}°F`)
     const locationTag = $(htmlTags.getDivTags(data.full_location))
     $('#weather-image').append(locationTag)
@@ -105,6 +106,8 @@ const dom = {
   drawOneDayForecast: function(data) {
     // console.log('drawOneDayForecast');
     // console.log(data);
+    $('#high-low-temp').empty()
+    $('#today').empty()
     $('#high-low-temp').append($(htmlTags.getTempRow('High', data.simple.high.fahrenheit)))
     $('#high-low-temp').append($(htmlTags.getTempRow('Low', data.simple.low.fahrenheit)))
     $('#today').append($(htmlTags.getDivTags(data.simple.date.pretty)))
@@ -116,6 +119,7 @@ const dom = {
     // console.log(data);
     $('#five-day-title').text('Five Day Forecast')
     if (Array.isArray(data)) {
+      $('#future-forecast').empty()
       for (let i = 0; i < data.length; i++) {
         $('#future-forecast').append($(htmlTags.getDayColumn(data[i])));
       }

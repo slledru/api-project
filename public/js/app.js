@@ -70,7 +70,7 @@ $(document).ready(() => {
     setTimeout(() => {
       $('#location').focus()
     }, 10)
-    displayPage('search')
+    displayPage('home')
   }
   function displayPlannerPage(event) {
     event.preventDefault()
@@ -116,11 +116,11 @@ $(document).ready(() => {
     event.preventDefault()
     let location = $('#location').val()
     if (location.length > 0) {
-      location = location.replace(/ /g, '_')
       console.log(location)
-      supplement.location = location
       $('#locationModal').modal('hide')
-      retrieveWeatherInformation(supplement.location)
+      supplement.location = location
+      storage.setLastLocation(location)
+      retrieveWeatherInformation(location)
     } else {
       $('#location').focus()
     }

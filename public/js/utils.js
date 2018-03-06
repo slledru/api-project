@@ -19,7 +19,11 @@ const storage = {
     return (elapsed < 5)
   },
   setLastLocation: function(data) {
-    storage.myWeather.lastLocation = data
+    if (data !== storage.getLastLocation()) {
+      storage.myWeather.lastLocation = data
+      storage.myWeather.lastTime = null
+      storage.putStorage()
+    }
   },
   getLastLocation: function() {
     if (storage.myWeather) {
