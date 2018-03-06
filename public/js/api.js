@@ -1,8 +1,7 @@
 const api = {
-  urlStart: 'https://crossorigin.me/',
-  weatherUrl: 'https://api.wunderground.com/api/',
+  weatherUrl: 'https://g-wunderground.herokuapp.com/',
   getWeatherInfo: function(path, parseFunc, drawFunc) {
-    const url = `${this.urlStart}${this.weatherUrl}${path}`
+    const url = `${this.weatherUrl}${path}`
     const $xhr = $.ajax({
       url: url,
       type: 'GET',
@@ -21,7 +20,7 @@ const api = {
   getCurrentCondition: function(appKey, location, draw) {
     let data = storage.getLastCondition()
     if (data === null) {
-      const path = `${appKey}/conditions/q/${location}.json`
+      const path = `/conditions/q/${location}.json`
       api.getWeatherInfo(path, parse.parseCurrentCondition, draw)
     } else {
       draw(data)
@@ -30,7 +29,7 @@ const api = {
   getWeatherAlerts: function(appKey, location, draw) {
     let data = storage.getLastAlerts()
     if (data === null) {
-      const path = `${appKey}/alerts/q/${location}.json`
+      const path = `/alerts/q/${location}.json`
       api.getWeatherInfo(path, parse.parseWeatherAlerts, draw)
     } else {
       draw(data)
@@ -39,7 +38,7 @@ const api = {
   getOneDayForecast: function(appKey, location, draw) {
     let data = storage.getLastOneDay()
     if (data === null) {
-      const path = `${appKey}/forecast/q/${location}.json`
+      const path = `/forecast/q/${location}.json`
       api.getWeatherInfo(path, parse.parseOneDayForecast, draw)
     } else {
       draw(data)
@@ -48,7 +47,7 @@ const api = {
   getFiveDayForecast: function(appKey, location, draw) {
     let data = storage.getLastFiveDay()
     if (data === null) {
-      const path = `${appKey}/forecast10day/q/${location}.json`
+      const path = `/forecast10day/q/${location}.json`
       api.getWeatherInfo(path, parse.parseFiveDayForecast, draw)
     } else {
       draw(data)
@@ -58,11 +57,11 @@ const api = {
 
   },
   getCurrentLocation: function(appKey, lat, lon, draw) {
-    const path = `${appKey}/geolookup/q/${lat},${lon}.json`
+    const path = `/geolookup/q/${lat},${lon}.json`
     api.getWeatherInfo(path, parse.parseGeoLookup, draw)
   },
   getRadarImage: function(appKey, location, draw) {
-    const path = `${this.weatherUrl}${appKey}/animatedradar/q/${location}.gif?newmaps=1&timelabel=1&timelabel.y=10&num=10&delay=50`
+    const path = `${this.weatherUrl}/animatedradar/q/${location}.gif?newmaps=1&timelabel=1&timelabel.y=10&num=10&delay=50`
     draw(path, location)
   }
 }
