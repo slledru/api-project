@@ -15,7 +15,7 @@ const parse = {
       const {
         full: full_location
       } = data.current_observation.display_location
-      return {
+      let result = {
         full_location,
         observation_time,
         feelslike_f,
@@ -27,12 +27,14 @@ const parse = {
         wind_string,
         relative_humidity
       }
+      storage.setLastCondition(result)
+      return result
     }
     throw new Error('error result')
   },
   parseWeatherAlerts: function(data) {
     if (data.alerts) {
-      const alerts = []
+      const alerts = null
       if (Array.isArray(data.alerts)) {
         for (const alert of data.alerts) {
           const {
@@ -53,6 +55,7 @@ const parse = {
             type
           })
         }
+        storage.setLastAlerts(alerts)
       }
       return alerts
     }
@@ -114,10 +117,12 @@ const parse = {
         data.forecast.txt_forecast) {
       const simple = parse.parseSimpleForecasts(data.forecast.simpleforecast, 0)
       const verbose = parse.parseTextForecasts(data.forecast.txt_forecast, 0)
-      return {
+      let result = {
         simple,
         verbose
       }
+      storage.setLastOneDay(result)
+      return result
     }
     throw new Error('error result')
   },
@@ -138,6 +143,9 @@ const parse = {
         const day = parse.parseTextForecasts(data.forecast.txt_forecast, i * 2)
         const night = parse.parseTextForecasts(data.forecast.txt_forecast, i * 2 + 1)
         result.push({ simple, day, night})
+      }
+      if (result.length > 0) {
+        storage.setLastFiveDay(result)
       }
       return result
     }

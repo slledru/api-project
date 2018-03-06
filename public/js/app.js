@@ -23,7 +23,7 @@ $(document).ready(() => {
   function setCurrentLocation(location) {
     supplement.location = location
     storage.setLastLocation(location)
-    //retrieveWeatherInformation(location)
+    retrieveWeatherInformation(location)
   }
 
   function setupDatePicker() {
@@ -40,7 +40,6 @@ $(document).ready(() => {
     startDate.datepicker(options);
     endDate.datepicker(options);
   }
-
   function setupEventHandler() {
     $('#home-btn').click(displayHomePage)
     $('#search-btn').click(displaySearchPage)

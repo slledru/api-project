@@ -19,20 +19,40 @@ const api = {
     })
   },
   getCurrentCondition: function(appKey, location, draw) {
-    const path = `${appKey}/conditions/q/${location}.json`
-    api.getWeatherInfo(path, parse.parseCurrentCondition, draw)
+    let data = storage.getLastCondition()
+    if (data === null) {
+      const path = `${appKey}/conditions/q/${location}.json`
+      api.getWeatherInfo(path, parse.parseCurrentCondition, draw)
+    } else {
+      draw(data)
+    }
   },
   getWeatherAlerts: function(appKey, location, draw) {
-    const path = `${appKey}/alerts/q/${location}.json`
-    api.getWeatherInfo(path, parse.parseWeatherAlerts, draw)
+    let data = storage.getLastAlerts()
+    if (data === null) {
+      const path = `${appKey}/alerts/q/${location}.json`
+      api.getWeatherInfo(path, parse.parseWeatherAlerts, draw)
+    } else {
+      draw(data)
+    }
   },
   getOneDayForecast: function(appKey, location, draw) {
-    const path = `${appKey}/forecast/q/${location}.json`
-    api.getWeatherInfo(path, parse.parseOneDayForecast, draw)
+    let data = storage.getLastOneDay()
+    if (data === null) {
+      const path = `${appKey}/forecast/q/${location}.json`
+      api.getWeatherInfo(path, parse.parseOneDayForecast, draw)
+    } else {
+      draw(data)
+    }
   },
   getFiveDayForecast: function(appKey, location, draw) {
-    const path = `${appKey}/forecast10day/q/${location}.json`
-    api.getWeatherInfo(path, parse.parseFiveDayForecast, draw)
+    let data = storage.getLastFiveDay()
+    if (data === null) {
+      const path = `${appKey}/forecast10day/q/${location}.json`
+      api.getWeatherInfo(path, parse.parseFiveDayForecast, draw)
+    } else {
+      draw(data)
+    }
   },
   getHistoricalSummary: function() {
 
