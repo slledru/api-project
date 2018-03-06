@@ -129,5 +129,49 @@ $(document).ready(() => {
     event.preventDefault()
     console.log(`selectDateRange: ${$('#start-date').val()} to ${$('#end-date').val()}`);
     $('#dateRangeModal').modal('hide')
+    rotateScreen('planner')
+  }
+  function resetScreenOrientation(pageName) {
+    switch (pageName) {
+      case 'search':
+        $('#search-page').removeClass('rotate-90')
+        break
+      case 'planner':
+        $('#planner-page').removeClass('rotate-90')
+        break
+      case 'radar':
+        $('#radar-page').removeClass('rotate-90')
+        break
+      case 'alerts':
+        $('#alerts-page').removeClass('rotate-90')
+        break
+      case 'home':
+      default:
+        $('#home-page').removeClass('rotate-90')
+        break
+    }
+  }
+  function rotateScreen(pageName) {
+    switch (pageName) {
+      case 'search':
+        $('#search-page').addClass('rotate-90')
+        break
+      case 'planner':
+        // $('#planner-page').addClass('rotate-90')
+        $('#chart').css('transform', 'rotate(-90deg)')
+        $('#chart').css('-webkit-transform', 'rotate(-90deg)')
+        $('#chart').addClass('planner-chart')
+        break
+      case 'radar':
+        $('#radar-page').addClass('rotate-90')
+        break
+      case 'alerts':
+        $('#alerts-page').addClass('rotate-90')
+        break
+      case 'home':
+      default:
+        $('#home-page').addClass('rotate-90')
+        break
+    }
   }
 })
