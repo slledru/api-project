@@ -132,6 +132,7 @@ const dom = {
     dom.drawNormalCursor()
   },
   drawRadarImage: function(data, location) {
+    $('#radar-image').empty()
     $('#radar-image').append($(htmlTags.getRadarImageRow(data, location)))
     dom.drawNormalCursor()
   },
