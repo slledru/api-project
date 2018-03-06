@@ -62,6 +62,7 @@ const dom = {
     imageTag.addClass('img-fluid')
     imageTag.addClass('img-thumbnail')
     $('#weather-image').append(imageTag)
+    dom.drawNormalCursor()
   },
   drawWeatherAlerts: function(data) {
     if (Array.isArray(data)) {
@@ -88,6 +89,7 @@ const dom = {
       $('#alerts').addClass('no-alert')
       $('#alerts').removeClass('alert')
     }
+    dom.drawNormalCursor()
   },
   drawWeatherDetailAlerts: function(data) {
     if (Array.isArray(data)) {
@@ -98,6 +100,7 @@ const dom = {
         }
       }
     }
+    dom.drawNormalCursor()
   },
   drawOneDayForecast: function(data) {
     // console.log('drawOneDayForecast');
@@ -106,6 +109,7 @@ const dom = {
     $('#high-low-temp').append($(htmlTags.getTempRow('Low', data.simple.low.fahrenheit)))
     $('#today').append($(htmlTags.getDivTags(data.simple.date.pretty)))
     $('#today').append($(htmlTags.getDivTags(data.verbose.fcttext)))
+    dom.drawNormalCursor()
   },
   drawFiveDayForecast: function(data) {
     // console.log('drawFiveDayForecast');
@@ -116,12 +120,25 @@ const dom = {
         $('#future-forecast').append($(htmlTags.getDayColumn(data[i])));
       }
     }
+    dom.drawNormalCursor()
   },
   drawHistoricalSummary: function(data) {
     // console.log('drawHistoricalSummary');
     // console.log(data);
+    dom.drawNormalCursor()
   },
   drawRadarImage: function(data, location) {
     $('#radar-image').append($(htmlTags.getRadarImageRow(data, location)))
+    dom.drawNormalCursor()
+  },
+  drawWaitCursor() {
+    setTimeout(() => {
+      $('body').addClass('please-wait')
+    }, 10)
+  },
+  drawNormalCursor() {
+    setTimeout(() => {
+      $('body').removeClass('please-wait')
+    }, 10)
   }
 }

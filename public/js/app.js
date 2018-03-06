@@ -11,15 +11,23 @@ $(document).ready(() => {
   } else {
     setCurrentLocation(supplement.location)
   }
-  initialize()
+  setupEventHandler()
   setupDatePicker()
 
   function setCurrentLocation(location) {
     supplement.location = location
-    // api.getCurrentCondition(supplement.appKey, location, dom.drawCurrentCondition)
-    // api.getWeatherAlerts(supplement.appKey, location, dom.drawWeatherAlerts)
-    // api.getOneDayForecast(supplement.appKey, location, dom.drawOneDayForecast)
-    // api.getFiveDayForecast(supplement.appKey, location, dom.drawFiveDayForecast)
+    const {
+      drawCurrentCondition,
+      drawWeatherAlerts,
+      drawOneDayForecast,
+      drawFiveDayForecast
+    } = dom
+    retrieveWeatherInformation(location, {
+      drawCurrentCondition,
+      drawWeatherAlerts,
+      drawOneDayForecast,
+      drawFiveDayForecast
+    })
   }
 
   function setupDatePicker() {
@@ -37,7 +45,7 @@ $(document).ready(() => {
     endDate.datepicker(options);
   }
 
-  function initialize() {
+  function setupEventHandler() {
     $('#home-btn').click(displayHomePage)
     $('#search-btn').click(displaySearchPage)
     $('#planner-btn').click(displayPlannerPage)
@@ -46,55 +54,59 @@ $(document).ready(() => {
     $('#location-btn').click(selectLocation)
     $('#date-range-btn').click(selectDateRange)
   }
+  function retrieveWeatherInformation(location, funcs) {
+    api.getCurrentCondition(supplement.appKey, location, funcs.drawCurrentCondition)
+    api.getWeatherAlerts(supplement.appKey, location, funcs.drawWeatherAlerts)
+    api.getOneDayForecast(supplement.appKey, location, funcs.drawOneDayForecast)
+    api.getFiveDayForecast(supplement.appKey, location, funcs.drawFiveDayForecast)
+    dom.drawWaitCursor();
+  }
   function displayHomePage(event) {
     event.preventDefault()
-    $('#home-page').removeClass('collapse')
-    $('#search-page').addClass('collapse')
-    $('#planner-page').addClass('collapse')
-    $('#radar-page').addClass('collapse')
-    $('#alerts-page').addClass('collapse')
+    displayPage('home')
   }
   function displaySearchPage(event) {
     event.preventDefault()
-    $('#home-page').addClass('collapse')
-    $('#search-page').removeClass('collapse')
-    $('#planner-page').addClass('collapse')
-    $('#radar-page').addClass('collapse')
-    $('#alerts-page').addClass('collapse')
+    displayPage('search')
   }
   function displayPlannerPage(event) {
     event.preventDefault()
-    $('#home-page').addClass('collapse')
-    $('#search-page').addClass('collapse')
-    $('#planner-page').removeClass('collapse')
-    $('#radar-page').addClass('collapse')
-    $('#alerts-page').addClass('collapse')
+    displayPage('planner')
   }
   function displayRadarPage(event) {
     event.preventDefault()
-    $('#home-page').addClass('collapse')
-    $('#search-page').addClass('collapse')
-    $('#planner-page').addClass('collapse')
-    $('#radar-page').removeClass('collapse')
-    $('#alerts-page').addClass('collapse')
+    displayPage('radar')
     api.getRadarImage(supplement.appKey, supplement.location, dom.drawRadarImage)
   }
   function displayAlertsPage(event) {
     event.preventDefault()
-    $('#home-page').addClass('collapse')
-    $('#search-page').addClass('collapse')
-    $('#planner-page').addClass('collapse')
-    $('#radar-page').addClass('collapse')
-    $('#alerts-page').removeClass('collapse')
+    displayPage('alerts')
     api.getWeatherAlerts(supplement.appKey, supplement.location, dom.drawWeatherDetailAlerts)
   }
-  function displayOptionsPage(event) {
-    event.preventDefault()
+  function displayPage(pageName) {
     $('#home-page').addClass('collapse')
     $('#search-page').addClass('collapse')
     $('#planner-page').addClass('collapse')
     $('#radar-page').addClass('collapse')
     $('#alerts-page').addClass('collapse')
+    switch (pageName) {
+      case 'search':
+        $('#search-page').removeClass('collapse')
+        break
+      case 'planner':
+        $('#planner-page').removeClass('collapse')
+        break
+      case 'radar':
+        $('#radar-page').removeClass('collapse')
+        break
+      case 'alerts':
+        $('#alerts-page').removeClass('collapse')
+        break
+      case 'home':
+      default:
+        $('#home-page').removeClass('collapse')
+        break
+    }
   }
   function selectLocation(event) {
     event.preventDefault()
