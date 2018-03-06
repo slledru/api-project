@@ -50,6 +50,7 @@ $(document).ready(() => {
     $('#date-range-btn').click(selectDateRange)
   }
   function retrieveWeatherInformation(location) {
+    dom.drawWaitCursor();
     try {
       api.getCurrentCondition(supplement.appKey, location, dom.drawCurrentCondition)
       api.getWeatherAlerts(supplement.appKey, location, dom.drawWeatherAlerts)
@@ -58,7 +59,6 @@ $(document).ready(() => {
     } catch (e) {
       console.log(e);
     }
-    dom.drawWaitCursor();
   }
   function displayHomePage(event) {
     event.preventDefault()
@@ -79,11 +79,13 @@ $(document).ready(() => {
   }
   function displayRadarPage(event) {
     event.preventDefault()
+    dom.drawWaitCursor();
     displayPage('radar')
     api.getRadarImage(supplement.appKey, supplement.location, dom.drawRadarImage)
   }
   function displayAlertsPage(event) {
     event.preventDefault()
+    dom.drawWaitCursor();
     displayPage('alerts')
     api.getWeatherAlerts(supplement.appKey, supplement.location, dom.drawWeatherDetailAlerts)
   }
@@ -133,46 +135,14 @@ $(document).ready(() => {
     rotateScreen('planner')
     drawPlannerChart()
   }
-  function resetScreenOrientation(pageName) {
-    switch (pageName) {
-      case 'search':
-        $('#search-page').removeClass('rotate-90')
-        break
-      case 'planner':
-        $('#planner-page').removeClass('rotate-90')
-        break
-      case 'radar':
-        $('#radar-page').removeClass('rotate-90')
-        break
-      case 'alerts':
-        $('#alerts-page').removeClass('rotate-90')
-        break
-      case 'home':
-      default:
-        $('#home-page').removeClass('rotate-90')
-        break
-    }
-  }
   function rotateScreen(pageName) {
     switch (pageName) {
-      case 'search':
-        $('#search-page').addClass('rotate-90')
-        break
       case 'planner':
-        // $('#planner-page').addClass('rotate-90')
         $('#chart-segment').css('transform', 'rotate(-90deg)')
         $('#chart-segment').css('-webkit-transform', 'rotate(-90deg)')
         $('#chart-segment').addClass('planner-chart')
         break
-      case 'radar':
-        $('#radar-page').addClass('rotate-90')
-        break
-      case 'alerts':
-        $('#alerts-page').addClass('rotate-90')
-        break
-      case 'home':
       default:
-        $('#home-page').addClass('rotate-90')
         break
     }
   }
