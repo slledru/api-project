@@ -229,7 +229,6 @@ const chartUtil = {
       chartUtil.highDataset.data.push(parseInt(data.days[key].maxtempi, 10))
       chartUtil.lowDataset.data.push(parseInt(data.days[key].mintempi, 10))
     }
-
     let myChart = new Chart(ctx, {
       type: 'bar',
       data:

@@ -113,6 +113,12 @@ const historicData = {
     const day = date.getDate()
     return `history_${year}${('00' + month).slice(-2)}${('00' + day).slice(-2)}`
   },
+  isThirtyDayMonth: function(month) {
+    return (month === 4 ||
+            month === 6 ||
+            month === 9 ||
+            month === 11)
+  },
   generateHistoryArray: function(date, total, frequency) {
     const historyObj = {}
     let year = date.getYear() + 1900
@@ -120,13 +126,20 @@ const historicData = {
     let day = date.getDate()
     for (let i = 0; i < total; i++) {
       const dateString = historicData.generateHistoryString(date)
+      // console.log(dateString);
       historyObj[dateString] = false
       switch (frequency) {
         case 'weeks':
           day += 7
           break;
         case 'months':
-          day += 30
+          if (month === 2) {
+            day += 28
+          } else if (historicData.isThirtyDayMonth(month)) {
+            day += 30
+          } else {
+            day += 31
+          }
           break;
         case 'days':
         default:
@@ -138,10 +151,7 @@ const historicData = {
           month += 1
           day -= 28
         }
-      } else if (month === 4 ||
-                 month === 6 ||
-                 month === 9 ||
-                 month === 11) {
+      } else if (historicData.isThirtyDayMonth(month)) {
         if (day > 30) {
           month += 1
           day -= 30
