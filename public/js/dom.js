@@ -1,10 +1,10 @@
 const htmlTags = {
   getImageTag: function(src, width, height) {
-    //console.log(src);
+    // console.log(src);
     if (src.startsWith('http')) {
       const lastIndex = src.lastIndexOf('/')
       if (lastIndex > 0) {
-        src = `../images/${src.substr(lastIndex + 1)}`
+        src = `https://g-wunder-images.herokuapp.com/${src.substr(lastIndex + 1)}`
       }
     }
     return `<img src="${src}" width="${width}px" height="${height}px">`
