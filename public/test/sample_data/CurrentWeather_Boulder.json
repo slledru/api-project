@@ -1,4 +1,4 @@
-
+currentWeather = `
 {
   "response": {
     "version":"0.1",
@@ -91,4 +91,4 @@
 		"ob_url":"http://www.wunderground.com/cgi-bin/findweather/getForecast?query=40.055550,-105.208595",
 		"nowcast":""
 	}
-}
+}`

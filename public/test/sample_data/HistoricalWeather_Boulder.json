@@ -1,4 +1,5 @@
 
+historicalWeather = `
 {
   "response": {
   "version":"0.1",
@@ -1367,7 +1368,9 @@
 		"min": "16",
 		"tzname": "UTC"
 		},
-		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"0.0", "wspdi":"0.0","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"0","wdire":"North","vism":"16.1", "visi":"10.0","pressurem":"1019.9", "pressurei":"30.12","windchillm":"-999", "windchilli":"-999","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00", "precipi":"-9999.00","conds":"Mostly Cloudy","icon":"mostlycloudy","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0","metar":"METAR KBDU 060416Z AUTO 00000KT 10SM BKN110 06/M01 A3012 RMK AO2" },
+		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"0.0", "wspdi":"0.0","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"0","wdire":"North","vism":"16.1",
+    "visi":"10.0","pressurem":"1019.9", "pressurei":"30.12","windchillm":"-999", "windchilli":"-999","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00", "precipi":"-9999.00",
+    "conds":"Mostly Cloudy","icon":"mostlycloudy","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0","metar":"METAR KBDU 060416Z AUTO 00000KT 10SM BKN110 06/M01 A3012 RMK AO2" },
 		{
 		"date": {
 		"pretty": "10:36 PM MDT on April 05, 2017",
@@ -1387,7 +1390,9 @@
 		"min": "36",
 		"tzname": "UTC"
 		},
-		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"0.0", "wspdi":"0.0","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"0","wdire":"North","vism":"16.1", "visi":"10.0","pressurem":"1020.2", "pressurei":"30.13","windchillm":"-999", "windchilli":"-999","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00", "precipi":"-9999.00","conds":"Mostly Cloudy","icon":"mostlycloudy","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0","metar":"METAR KBDU 060436Z AUTO 00000KT 10SM BKN110 06/M01 A3013 RMK AO2" },
+		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"0.0", "wspdi":"0.0","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"0","wdire":"North","vism":"16.1",
+    "visi":"10.0","pressurem":"1020.2", "pressurei":"30.13","windchillm":"-999", "windchilli":"-999","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00", "precipi":"-9999.00",
+    "conds":"Mostly Cloudy","icon":"mostlycloudy","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0","metar":"METAR KBDU 060436Z AUTO 00000KT 10SM BKN110 06/M01 A3013 RMK AO2" },
 		{
 		"date": {
 		"pretty": "10:56 PM MDT on April 05, 2017",
@@ -1407,7 +1412,9 @@
 		"min": "56",
 		"tzname": "UTC"
 		},
-		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"5.6", "wspdi":"3.5","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"110","wdire":"ESE","vism":"16.1", "visi":"10.0","pressurem":"1020.2", "pressurei":"30.13","windchillm":"5.0", "windchilli":"41.1","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00", "precipi":"-9999.00","conds":"Mostly Cloudy","icon":"mostlycloudy","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0","metar":"METAR KBDU 060456Z AUTO 11003KT 10SM BKN100 06/M01 A3013 RMK AO2" },
+		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"5.6", "wspdi":"3.5","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"110","wdire":"ESE","vism":"16.1",
+    "visi":"10.0","pressurem":"1020.2", "pressurei":"30.13","windchillm":"5.0", "windchilli":"41.1","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00", "precipi":"-9999.00",
+    "conds":"Mostly Cloudy","icon":"mostlycloudy","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0","metar":"METAR KBDU 060456Z AUTO 11003KT 10SM BKN100 06/M01 A3013 RMK AO2" },
 		{
 		"date": {
 		"pretty": "11:16 PM MDT on April 05, 2017",
@@ -1427,7 +1434,10 @@
 		"min": "16",
 		"tzname": "UTC"
 		},
-		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"5.6", "wspdi":"3.5","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"160","wdire":"SSE","vism":"16.1", "visi":"10.0","pressurem":"1020.2", "pressurei":"30.13","windchillm":"5.0", "windchilli":"41.1","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00", "precipi":"-9999.00","conds":"Mostly Cloudy","icon":"mostlycloudy","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0","metar":"METAR KBDU 060516Z AUTO 16003KT 10SM SCT080 BKN100 06/M01 A3013 RMK AO2" },
+		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"5.6", "wspdi":"3.5","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"160","wdire":"SSE","vism":"16.1",
+    "visi":"10.0","pressurem":"1020.2", "pressurei":"30.13","windchillm":"5.0", "windchilli":"41.1","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00", "precipi":"-9999.00",
+    "conds":"Mostly Cloudy","icon":"mostlycloudy","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0",
+    "metar":"METAR KBDU 060516Z AUTO 16003KT 10SM SCT080 BKN100 06/M01 A3013 RMK AO2" },
 		{
 		"date": {
 		"pretty": "11:36 PM MDT on April 05, 2017",
@@ -1447,7 +1457,9 @@
 		"min": "36",
 		"tzname": "UTC"
 		},
-		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"5.6", "wspdi":"3.5","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"200","wdire":"SSW","vism":"16.1", "visi":"10.0","pressurem":"1020.2", "pressurei":"30.13","windchillm":"5.0", "windchilli":"41.1","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00", "precipi":"-9999.00","conds":"Scattered Clouds","icon":"partlycloudy","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0","metar":"METAR KBDU 060536Z AUTO 20003KT 10SM SCT080 SCT100 06/M01 A3013 RMK AO2" },
+		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"5.6", "wspdi":"3.5","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"200","wdire":"SSW","vism":"16.1",
+    "visi":"10.0","pressurem":"1020.2", "pressurei":"30.13","windchillm":"5.0", "windchilli":"41.1","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00", "precipi":"-9999.00",
+    "conds":"Scattered Clouds","icon":"partlycloudy","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0","metar":"METAR KBDU 060536Z AUTO 20003KT 10SM SCT080 SCT100 06/M01 A3013 RMK AO2" },
 		{
 		"date": {
 		"pretty": "11:56 PM MDT on April 05, 2017",
@@ -1467,7 +1479,9 @@
 		"min": "56",
 		"tzname": "UTC"
 		},
-		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"5.6", "wspdi":"3.5","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"250","wdire":"WSW","vism":"16.1", "visi":"10.0","pressurem":"1020.5", "pressurei":"30.14","windchillm":"5.0", "windchilli":"41.1","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00", "precipi":"-9999.00","conds":"Clear","icon":"clear","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0","metar":"METAR KBDU 060556Z AUTO 25003KT 10SM CLR 06/M01 A3014 RMK AO2" }
+		"tempm":"6.0", "tempi":"42.8","dewptm":"-1.0", "dewpti":"30.2","hum":"61","wspdm":"5.6", "wspdi":"3.5","wgustm":"-9999.0", "wgusti":"-9999.0","wdird":"250","wdire":"WSW",
+    "vism":"16.1", "visi":"10.0","pressurem":"1020.5", "pressurei":"30.14","windchillm":"5.0", "windchilli":"41.1","heatindexm":"-9999", "heatindexi":"-9999","precipm":"-9999.00",
+    "precipi":"-9999.00","conds":"Clear","icon":"clear","fog":"0","rain":"0","snow":"0","hail":"0","thunder":"0","tornado":"0","metar":"METAR KBDU 060556Z AUTO 25003KT 10SM CLR 06/M01 A3014 RMK AO2" }
 		],
 		"dailysummary": [
 		{ "date": {
@@ -1479,7 +1493,13 @@
 		"min": "00",
 		"tzname": "America/Denver"
 		},
-		"fog":"0","rain":"0","snow":"0","snowfallm":"0.00", "snowfalli":"0.00","monthtodatesnowfallm":"", "monthtodatesnowfalli":"","since1julsnowfallm":"", "since1julsnowfalli":"","snowdepthm":"", "snowdepthi":"","hail":"0","thunder":"0","tornado":"0","meantempm":"5", "meantempi":"41","meandewptm":"-4", "meandewpti":"25","meanpressurem":"1020", "meanpressurei":"30.13","meanwindspdm":"5", "meanwindspdi":"3","meanwdire":"","meanwdird":"172","meanvism":"16", "meanvisi":"10","humidity":"","maxtempm":"12", "maxtempi":"54","mintempm":"-2", "mintempi":"28","maxhumidity":"96","minhumidity":"28","maxdewptm":"0", "maxdewpti":"32","mindewptm":"-8", "mindewpti":"18","maxpressurem":"1022", "maxpressurei":"30.19","minpressurem":"1017", "minpressurei":"30.05","maxwspdm":"11", "maxwspdi":"7","minwspdm":"0", "minwspdi":"0","maxvism":"16", "maxvisi":"10","minvism":"16", "minvisi":"10","gdegreedays":"0","heatingdegreedays":"24","coolingdegreedays":"0","precipm":"0.00", "precipi":"0.00","precipsource":"","heatingdegreedaysnormal":"","monthtodateheatingdegreedays":"115","monthtodateheatingdegreedaysnormal":"","since1sepheatingdegreedays":"","since1sepheatingdegreedaysnormal":"","since1julheatingdegreedays":"","since1julheatingdegreedaysnormal":"","coolingdegreedaysnormal":"","monthtodatecoolingdegreedays":"0","monthtodatecoolingdegreedaysnormal":"","since1sepcoolingdegreedays":"","since1sepcoolingdegreedaysnormal":"","since1jancoolingdegreedays":"","since1jancoolingdegreedaysnormal":"" }
+		"fog":"0","rain":"0","snow":"0","snowfallm":"0.00", "snowfalli":"0.00","monthtodatesnowfallm":"", "monthtodatesnowfalli":"","since1julsnowfallm":"", "since1julsnowfalli":"","snowdepthm":"", "snowdepthi":"","hail":"0",
+    "thunder":"0","tornado":"0","meantempm":"5", "meantempi":"41","meandewptm":"-4", "meandewpti":"25","meanpressurem":"1020", "meanpressurei":"30.13","meanwindspdm":"5", "meanwindspdi":"3","meanwdire":"","meanwdird":"172",
+    "meanvism":"16", "meanvisi":"10","humidity":"","maxtempm":"12", "maxtempi":"54","mintempm":"-2", "mintempi":"28","maxhumidity":"96","minhumidity":"28","maxdewptm":"0", "maxdewpti":"32","mindewptm":"-8",
+    "mindewpti":"18","maxpressurem":"1022", "maxpressurei":"30.19","minpressurem":"1017", "minpressurei":"30.05","maxwspdm":"11", "maxwspdi":"7","minwspdm":"0", "minwspdi":"0","maxvism":"16", "maxvisi":"10","minvism":"16",
+    "minvisi":"10","gdegreedays":"0","heatingdegreedays":"24","coolingdegreedays":"0","precipm":"0.00","precipi":"0.00","precipsource":"","heatingdegreedaysnormal":"","monthtodateheatingdegreedays":"115",
+    "monthtodateheatingdegreedaysnormal":"","since1sepheatingdegreedays":"","since1sepheatingdegreedaysnormal":"","since1julheatingdegreedays":"","since1julheatingdegreedaysnormal":"","coolingdegreedaysnormal":"",
+    "monthtodatecoolingdegreedays":"0","monthtodatecoolingdegreedaysnormal":"","since1sepcoolingdegreedays":"","since1sepcoolingdegreedaysnormal":"","since1jancoolingdegreedays":"","since1jancoolingdegreedaysnormal":"" }
 		]
 	}
-}
+}`
