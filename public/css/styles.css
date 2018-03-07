@@ -11,6 +11,9 @@ body {
 div {
   font-size: 11px;
 }
+.wunderground-logo {
+  width: 60px;
+}
 .fa-layers-text {
   font-size: 12px;
   text-align: center;

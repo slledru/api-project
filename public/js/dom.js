@@ -1,6 +1,6 @@
 const htmlTags = {
   getImageTag: function(src, width, height) {
-    console.log(src);
+    //console.log(src);
     if (src.startsWith('http')) {
       const lastIndex = src.lastIndexOf('/')
       if (lastIndex > 0) {
