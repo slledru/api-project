@@ -55,6 +55,9 @@ div {
   margin: 0;
   font-size: 14px;
 }
+#alert-details {
+  margin-top: 15px;
+}
 #weather-image {
   margin: auto;
 }
