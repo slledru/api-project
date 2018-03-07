@@ -34,8 +34,9 @@ const parse = {
   },
   parseWeatherAlerts: function(data) {
     if (data.alerts) {
-      const alerts = null
+      let alerts = [null]
       if (Array.isArray(data.alerts)) {
+        alerts = []
         for (const alert of data.alerts) {
           const {
             description,
