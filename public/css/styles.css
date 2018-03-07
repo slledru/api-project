@@ -1,6 +1,6 @@
 html {
   position: relative;
-  min-height: 100%;
+  height: 100%;
 }
 
 body {
@@ -23,8 +23,8 @@ div {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px; /* Set the fixed height of the footer here */
-  line-height: 60px; /* Vertically center the text there */
+  height: 55px; /* Set the fixed height of the footer here */
+  line-height: 40px; /* Vertically center the text there */
   background-color: #f5f5f5;
 }
 
@@ -67,6 +67,16 @@ div {
 #five-day {
   margin-top: 25px;
 }
+#freq-number {
+  border: 1px solie #C8C8C8;
+  width: 40%;
+}
+.modal-content {
+  width: 87%;
+}
+.form-group {
+  width: 90%;
+}
 .radar-location {
   margin-top: 25px;
   margin-bottom: 5px;
@@ -99,4 +109,7 @@ div {
 
 .please-wait-content {
   background-color: #e0d916;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }

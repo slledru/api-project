@@ -218,8 +218,13 @@
             <input id="start-date" name="start-date" placeholder="MM/DD/YYY" type="text" required>
           </div>
           <div class="form-group">
-            <label for="end-date">End Date</label>
-            <input id="end-date" name="end-date" placeholder="MM/DD/YYY" type="text" required>
+            <label for="frequency">Frequency</label>
+            <input id="freq-number" name="freq-number" type="number" min="2" max="7">
+            <select name="frequency" id="frequency">
+              <option value="days">Days</option>
+              <option value="weeks">Weeks</option>
+              <option value="months">Months</option>
+            </select>
           </div>
         </div>
         <div class="modal-footer">
@@ -231,8 +236,8 @@
   </div>
   <div class="modal fade" id="pleaseWaitModal" tabindex="-1" role="dialog" aria-labelledby="pleaseWaitModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-body text-center please-wait-content">
+      <div class="modal-content please-wait-content">
+        <div class="modal-body text-center">
           <button class="btn btn-lg please-wait-content">
             <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
             Please Wait...
