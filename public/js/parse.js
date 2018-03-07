@@ -153,7 +153,31 @@ const parse = {
     throw new Error('error result')
   },
   parseHistoricalSummary: function(data) {
-    console.log(data);
+    if (data.history &&
+        data.history.dailysummary &&
+        Array.isArray(data.history.dailysummary) &&
+        data.history.dailysummary.length > 0) {
+      const {
+        date,
+        maxtempi,
+        maxtempm,
+        meantempi,
+        meantempm,
+        mintempi,
+        mintempm
+      } = data.history.dailysummary[0]
+      const dateString = `history_${date.year}${date.mon}${date.mday}`
+      return {
+        dateString,
+        date,
+        maxtempi,
+        maxtempm,
+        meantempi,
+        meantempm,
+        mintempi,
+        mintempm
+      }
+    }
   },
   parseGeoLookup: function(data) {
     if (data.location &&

@@ -114,14 +114,13 @@ const historicData = {
     return `history_${year}${('00' + month).slice(-2)}${('00' + day).slice(-2)}`
   },
   generateHistoryArray: function(date, total, frequency) {
-    const array = []
-
+    const historyObj = {}
     let year = date.getYear() + 1900
     let month = date.getMonth() + 1
     let day = date.getDate()
     for (let i = 0; i < total; i++) {
-      let dateString = historicData.generateHistoryString(date)
-      array.push(dateString)
+      const dateString = historicData.generateHistoryString(date)
+      historyObj[dateString] = {}
       switch (frequency) {
         case 'weeks':
           day += 7
@@ -161,7 +160,6 @@ const historicData = {
       date.setMonth(month - 1)
       date.setYear(year)
     }
-    console.log(array);
-    return array
+    return historyObj
   }
 }

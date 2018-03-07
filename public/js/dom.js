@@ -130,9 +130,11 @@ const dom = {
       }
     }
   },
-  drawHistoricalSummary: function(data) {
+  drawPlannerChart: function(data, userData) {
     // console.log('drawHistoricalSummary');
-    // console.log(data);
+    console.log(data.dateString);
+    userData[data.dateString] = data
+    console.log(userData);
     dom.drawNormalCursor()
   },
   drawRadarImage: function(data, location) {

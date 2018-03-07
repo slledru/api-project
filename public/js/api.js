@@ -1,6 +1,6 @@
 const api = {
   weatherUrl: 'https://g-wunderground.herokuapp.com/',
-  getWeatherInfo: function(path, parseFunc, drawFunc) {
+  getWeatherInfo: function(path, parseFunc, drawFunc, userData = null) {
     const url = `${this.weatherUrl}${path}`
     const $xhr = $.ajax({
       url: url,
@@ -9,7 +9,7 @@ const api = {
     $xhr.done((data, textStatus, jqXHR ) => {
       try {
         const result = parseFunc(data)
-        drawFunc(result)
+        drawFunc(result, userData)
       } catch (e) {
         console.log(e);
       }
@@ -53,8 +53,14 @@ const api = {
       draw(data)
     }
   },
-  getHistoricalSummary: function() {
-
+  getHistoricalSummary: function(location, history, draw) {
+    const keys = Object.keys(history)
+    if (keys.length > 0) {
+      for (let i = 0; i < keys.length; i++) {
+        const path = `/${keys[i]}/q/${location}.json`
+        api.getWeatherInfo(path, parse.parseHistoricalSummary, draw, history)
+      }
+    }
   },
   getCurrentLocation: function(appKey, lat, lon, draw) {
     const path = `/geolookup/q/${lat},${lon}.json`

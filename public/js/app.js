@@ -142,9 +142,11 @@ $(document).ready(() => {
         if (frequencyNumber > 1 &&
             frequencyNumber < 8) {
           const days = historicData.generateHistoryArray(d, frequencyNumber, $('#frequency').val())
-              $('#dateRangeModal').modal('hide')
-              rotateScreen('planner')
-              drawPlannerChart()
+          $('#dateRangeModal').modal('hide')
+          //dom.drawWaitCursor();
+          api.getHistoricalSummary(supplement.location, days, dom.drawPlannerChart)
+          // rotateScreen('planner')
+          // drawPlannerChart()
         } else {
           $('#freq-number').val('2')
           $('#freq-number').focus()
