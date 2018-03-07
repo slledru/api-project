@@ -100,7 +100,11 @@ const dom = {
         for (let i = 0; i < data.length; i++) {
           $('#alert-details').append($(htmlTags.getAlertRow(data[i])))
         }
+      } else {
+        $('#alert-details').text('There are no active weather alerts in effect.')
       }
+    } else {
+      $('#alert-details').text('There are no active weather alerts in effect.')
     }
   },
   drawOneDayForecast: function(data) {
