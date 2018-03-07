@@ -105,3 +105,63 @@ const storage = {
     }
   }
 }
+
+const historicData = {
+  generateHistoryString: function(date) {
+    const year = date.getYear() + 1899
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    return `history_${year}${('00' + month).slice(-2)}${('00' + day).slice(-2)}`
+  },
+  generateHistoryArray: function(date, total, frequency) {
+    const array = []
+
+    let year = date.getYear() + 1900
+    let month = date.getMonth() + 1
+    let day = date.getDate()
+    for (let i = 0; i < total; i++) {
+      let dateString = historicData.generateHistoryString(date)
+      array.push(dateString)
+      switch (frequency) {
+        case 'weeks':
+          day += 7
+          break;
+        case 'months':
+          day += 30
+          break;
+        case 'days':
+        default:
+          day += 1
+          break;
+      }
+      if (month === 2) {
+        if (day > 28) {
+          month += 1
+          day -= 28
+        }
+      } else if (month === 4 ||
+                 month === 6 ||
+                 month === 9 ||
+                 month === 11) {
+        if (day > 30) {
+          month += 1
+          day -= 30
+        }
+      } else {
+        if (day > 31) {
+          month += 1
+          day -= 31
+        }
+      }
+      if (month > 12) {
+        year += 1
+        month -= 12
+      }
+      date.setDate(day)
+      date.setMonth(month - 1)
+      date.setYear(year)
+    }
+    console.log(array);
+    return array
+  }
+}
