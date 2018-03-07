@@ -140,13 +140,13 @@ $(document).ready(() => {
       if (numberString.length > 0) {
         const frequencyNumber = parseInt(numberString, 10)
         if (frequencyNumber > 1 &&
-            frequencyNumber < 8) {
-          const days = historicData.generateHistoryArray(d, frequencyNumber, $('#frequency').val())
+            frequencyNumber < 13) {
+          const frequency = $('#frequency').val()
+          const days = historicData.generateHistoryArray(d, frequencyNumber, frequency)
           $('#dateRangeModal').modal('hide')
-          //dom.drawWaitCursor();
-          api.getHistoricalSummary(supplement.location, days, dom.drawPlannerChart)
-          // rotateScreen('planner')
-          // drawPlannerChart()
+          dom.drawWaitCursor();
+          api.getHistoricalSummary(supplement.location,
+            { frequency: frequency, days: days }, dom.drawPlannerChart)
         } else {
           $('#freq-number').val('2')
           $('#freq-number').focus()
@@ -158,74 +158,6 @@ $(document).ready(() => {
     } else {
       $('#start-date').focus()
     }
-  }
-
-  function rotateScreen(pageName) {
-    switch (pageName) {
-      case 'planner':
-        $('#chart-segment').css('transform', 'rotate(-90deg)')
-        $('#chart-segment').css('-webkit-transform', 'rotate(-90deg)')
-        $('#chart-segment').addClass('planner-chart')
-        break
-      default:
-        break
-    }
-  }
-  function drawPlannerChart() {
-    let ctx = document.getElementById("chart").getContext('2d');
-    let myChart = new Chart(ctx, {
-      type: 'bar',
-      data:
-      {
-        labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets:
-        [
-          {
-            label: 'High (°F)',
-            data: [32, 29, 50, 54, 60, 67, 80, 95, 78, 65, 40, 35],
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            borderColor: 'rgba(255,99,132,1)',
-            borderWidth: 1
-          }
-        ]
-      },
-      options:
-      {
-        scales:
-        {
-          yAxes:
-          [
-            {
-              stacked: false,
-              ticks:
-              {
-                beginAtZero:true
-              }
-            }
-          ],
-          xAxes:
-          [
-            {
-              stacked: false
-            }
-          ]
-        }
-      }
-    })
-
-    var newDataset = {
-      label: 'Low (°F)',
-      backgroundColor: 'rgba(54, 162, 235, 0.2)',
-      borderColor: 'rgba(54, 162, 235, 1)',
-      borderWidth: 1,
-      data: [15, 5, 26, 34, 46, 50, 65, 70, 54, 43, 30, 26],
-     }
-
-     // You add the newly created dataset to the list of `data`
-     myChart.data.datasets.push(newDataset);
-
-     // You update the chart to take into account the new dataset
-     myChart.update();
   }
 })
 

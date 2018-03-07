@@ -130,12 +130,27 @@ const dom = {
       }
     }
   },
+  rotateScreen: function(pageName) {
+    switch (pageName) {
+      case 'planner':
+        $('#chart-segment').css('transform', 'rotate(-90deg)')
+        $('#chart-segment').css('-webkit-transform', 'rotate(-90deg)')
+        $('#chart-segment').addClass('planner-chart')
+        break
+      default:
+        break
+    }
+  },
   drawPlannerChart: function(data, userData) {
     // console.log('drawHistoricalSummary');
-    console.log(data.dateString);
-    userData[data.dateString] = data
-    console.log(userData);
-    dom.drawNormalCursor()
+    userData.days[data.dateString] = data
+    const keys = Object.keys(userData.days)
+    const count = keys.filter((key) => userData.days[key] === false)
+    if (count.length === 0) {
+      dom.rotateScreen('planner')
+      dom.drawNormalCursor()
+      chartUtil.drawChart(userData)
+    }
   },
   drawRadarImage: function(data, location) {
     dom.drawNormalCursor()
@@ -151,5 +166,84 @@ const dom = {
     setTimeout(() => {
       $('#pleaseWaitModal').modal('hide')
     }, 750)
+  }
+}
+
+const chartUtil = {
+  options: {
+    scales: {
+      yAxes: [{
+        stacked: false,
+        ticks: {
+          beginAtZero:true
+        }
+      }],
+      xAxes: [{
+        stacked: false
+      }]
+    }
+  },
+  monthName: {
+    '01': 'Jan',
+    '02': 'Feb',
+    '03': 'Mar',
+    '04': 'Apr',
+    '05': 'May',
+    '06': 'Jun',
+    '07': 'Jul',
+    '08': 'Aug',
+    '09': 'Sep',
+    '10': 'Oct',
+    '11': 'Nov',
+    '12': 'Dec',
+  },
+  highDataset: {
+    label: 'High (°F)',
+    data: [],
+    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+    borderColor: 'rgba(255,99,132,1)',
+    borderWidth: 1
+  },
+  lowDataset: {
+    label: 'Low (°F)',
+    data: [],
+    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+    borderColor: 'rgba(54, 162, 235, 1)',
+    borderWidth: 1
+  },
+
+  drawChart: function(data) {
+    let ctx = document.getElementById("chart").getContext('2d');
+    const labels = []
+    for (const key in data.days) {
+      switch (data.frequency) {
+        case 'months':
+          labels.push(chartUtil.monthName[data.days[key].date.mon])
+          break;
+        case 'weeks':
+        case 'days':
+        default:
+          labels.push(`${data.days[key].date.mon}/${data.days[key].date.mday}`)
+          break;
+      }
+      chartUtil.highDataset.data.push(parseInt(data.days[key].maxtempi, 10))
+      chartUtil.lowDataset.data.push(parseInt(data.days[key].mintempi, 10))
+    }
+
+    let myChart = new Chart(ctx, {
+      type: 'bar',
+      data:
+      {
+        labels: labels,
+        datasets:
+        [
+          chartUtil.highDataset
+        ]
+      },
+      options: chartUtil.options
+    })
+    myChart.data.datasets.push(chartUtil.lowDataset)
+    // You update the chart to take into account the new dataset
+    myChart.update();
   }
 }

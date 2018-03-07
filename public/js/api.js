@@ -54,7 +54,7 @@ const api = {
     }
   },
   getHistoricalSummary: function(location, history, draw) {
-    const keys = Object.keys(history)
+    const keys = Object.keys(history.days)
     if (keys.length > 0) {
       for (let i = 0; i < keys.length; i++) {
         const path = `/${keys[i]}/q/${location}.json`

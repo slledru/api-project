@@ -120,7 +120,7 @@ const historicData = {
     let day = date.getDate()
     for (let i = 0; i < total; i++) {
       const dateString = historicData.generateHistoryString(date)
-      historyObj[dateString] = {}
+      historyObj[dateString] = false
       switch (frequency) {
         case 'weeks':
           day += 7
