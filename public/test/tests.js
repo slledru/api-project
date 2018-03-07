@@ -55,30 +55,83 @@ describe('API', function() {
       it('is a function', function() {
         expect(parse.parseSimple).to.be.a('function')
       })
+      it('sampleData.oneDay', function() {
+        let result = parse.parseSimple(sampleData.oneDay.forecast.simpleforecast.forecastday[0])
+        expect(result.conditions).to.be.not.equal(null)
+        expect(result.high).to.be.not.equal(null)
+        expect(result.high.fahrenheit).to.be.not.equal(null)
+        expect(result.high.celsius).to.be.not.equal(null)
+        expect(result.low).to.be.not.equal(null)
+        expect(result.low.fahrenheit).to.be.not.equal(null)
+        expect(result.low.celsius).to.be.not.equal(null)
+        expect(result.date).to.be.not.equal(null)
+        expect(result.date.pretty).to.be.not.equal(null)
+      })
     })
     describe('parseText', function() {
       it('is a function', function() {
         expect(parse.parseText).to.be.a('function')
+      })
+      it('sampleData.oneDay', function() {
+        let result = parse.parseText(sampleData.oneDay.forecast.txt_forecast.forecastday[0])
+        expect(result.fcttext).to.be.not.equal(null)
+        expect(result.fcttext_metric).to.be.not.equal(null)
+        expect(result.icon_url).to.be.not.equal(null)
+        expect(result.title).to.be.not.equal(null)
       })
     })
     describe('parseSimpleForecasts', function() {
       it('is a function', function() {
         expect(parse.parseSimpleForecasts).to.be.a('function')
       })
+      it('sampleData.oneDay', function() {
+        let result = parse.parseSimpleForecasts(sampleData.oneDay.forecast.simpleforecast, 0)
+        expect(result.conditions).to.be.not.equal(null)
+        expect(result.high).to.be.not.equal(null)
+        expect(result.high.fahrenheit).to.be.not.equal(null)
+        expect(result.high.celsius).to.be.not.equal(null)
+        expect(result.low).to.be.not.equal(null)
+        expect(result.low.fahrenheit).to.be.not.equal(null)
+        expect(result.low.celsius).to.be.not.equal(null)
+        expect(result.date).to.be.not.equal(null)
+        expect(result.date.pretty).to.be.not.equal(null)
+      })
     })
     describe('parseTextForecasts', function() {
       it('is a function', function() {
         expect(parse.parseTextForecasts).to.be.a('function')
+      })
+      it('sampleData.oneDay', function() {
+        let result = parse.parseTextForecasts(sampleData.oneDay.forecast.txt_forecast, 0)
+        expect(result.fcttext).to.be.not.equal(null)
+        expect(result.fcttext_metric).to.be.not.equal(null)
+        expect(result.icon_url).to.be.not.equal(null)
+        expect(result.title).to.be.not.equal(null)
       })
     })
     describe('parseOneDayForecast', function() {
       it('is a function', function() {
         expect(parse.parseOneDayForecast).to.be.a('function')
       })
+      it('sampleData.oneDay', function() {
+        let result = parse.parseOneDayForecast(sampleData.oneDay)
+        expect(result.simple).to.be.not.equal(null)
+        expect(result.verbose).to.be.not.equal(null)
+      })
     })
     describe('parseFiveDayForecast', function() {
       it('is a function', function() {
         expect(parse.parseFiveDayForecast).to.be.a('function')
+      })
+      it('sampleData.tenDay', function() {
+        let result = parse.parseFiveDayForecast(sampleData.tenDay)
+        expect(Array.isArray(result)).to.be.equal(true)
+        expect(result.length).to.be.equal(5)
+        for (let i = 0; i < result.length; i++) {
+          expect(result[i].day).to.be.not.equal(null)
+          expect(result[i].night).to.be.not.equal(null)
+          expect(result[i].simple).to.be.not.equal(null)
+        }
       })
     })
     describe('parseHistoricalSummary', function() {
