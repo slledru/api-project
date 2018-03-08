@@ -260,3 +260,26 @@ describe('Utilities', function() {
     })
   })
 })
+describe('localStorage', function() {
+  it('myWeather exists', function() {
+    expect(localStorage.getItem('myWeather')).to.be.not.equal(null)
+  })
+  describe('localStorage.getItem("myWeather")', function() {
+    const storage = JSON.parse(localStorage.getItem('myWeather'))
+    it('last alerts', function() {
+      expect(storage.lastAlerts).to.be.not.equal(null)
+    })
+    it('last condition', function() {
+      expect(storage.lastCondition).to.be.not.equal(null)
+    })
+    it('one day weather', function() {
+      expect(storage.lastOneDay).to.be.not.equal(null)
+    })
+    it('five day weather', function() {
+      expect(storage.lastFiveDay).to.be.not.equal(null)
+    })
+    it('last time data retrieved', function() {
+      expect(storage.lastTime).to.be.not.equal(null)
+    })
+  })
+})
