@@ -16,11 +16,7 @@ const htmlTags = {
     return `<div>${text}</div>`
   },
   getTempRow: function(label, temp) {
-    return `<div class="row">
-          <div class="col-2">&nbsp;</div>
-          <div class="col-4">${label}</div>
-          <div class="col-5">${temp}°F</div>
-        </div>`
+    return `<div class="row"><div class="col-2">&nbsp;</div><div class="col-4">${label}</div><div class="col-5">${temp}°F</div></div>`
   },
   getDayColumn: function(data) {
     const date = `${data.simple.date.month}/${data.simple.date.day}`

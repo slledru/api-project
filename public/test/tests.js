@@ -165,7 +165,6 @@ describe('Utilities', function() {
       it('Date(1999, 9, 4), the month is zero-based', function() {
         expect(historicData.generateHistoryString(new Date(1999, 9, 4))).to.be.equal('history_19991004')
       })
-
     })
     describe('generateHistoryArray', function() {
       it('is a function', function() {
@@ -195,6 +194,68 @@ describe('Utilities', function() {
         expect(result.history_19891112).to.be.equal(false)
         expect(result.history_19891212).to.be.equal(false)
         expect(result.history_19900112).to.be.equal(false)
+      })
+    })
+  })
+  describe('HTML Tags', function() {
+    describe('getImageTag', function() {
+      it('is a function', function() {
+        expect(htmlTags.getImageTag).to.be.a('function')
+      })
+      const filename = 'image.png'
+      const width = 300
+      const height = 200
+      it(`getImageTag("${filename}", ${width}, ${height})`, function() {
+        expect(htmlTags.getImageTag(filename, width, height)).to.be.equal('<img src="image.png" width="300px" height="200px">')
+      })
+    })
+    describe('getRadarImageTag', function() {
+      it('is a function', function() {
+        expect(htmlTags.getRadarImageTag).to.be.a('function')
+      })
+      const src = 'radar.gif'
+      it(`getRadarImageTag("${src}")`, function() {
+        expect(htmlTags.getRadarImageTag(src)).to.be.equal('<img src="radar.gif" width="300px" height="300px">')
+      })
+    })
+    describe('getDivTags', function() {
+      it('is a function', function() {
+        expect(htmlTags.getDivTags).to.be.a('function')
+      })
+      const text = 'This is a test'
+      it(`getDivTags("${text}")`, function() {
+        expect(htmlTags.getDivTags(text)).to.be.equal('<div>This is a test</div>')
+      })
+    })
+    describe('getTempRow', function() {
+      it('is a function', function() {
+        expect(htmlTags.getTempRow).to.be.a('function')
+      })
+      const low = 'Low'
+      const temp = 70
+      it(`getTempRow("${low}", ${temp})`, function() {
+        expect(htmlTags.getTempRow(low, temp)).to.be.equal(
+          `<div class="row"><div class="col-2">&nbsp;</div><div class="col-4">Low</div><div class="col-5">70°F</div></div>`)
+      })
+      const high = 'High'
+      it(`getTempRow("${high}", ${temp})`, function() {
+        expect(htmlTags.getTempRow(high, temp)).to.be.equal(
+          `<div class="row"><div class="col-2">&nbsp;</div><div class="col-4">High</div><div class="col-5">70°F</div></div>`)
+      })
+    })
+    describe('getDayColumn', function() {
+      it('is a function', function() {
+        expect(htmlTags.getDayColumn).to.be.a('function')
+      })
+    })
+    describe('getAlertRow', function() {
+      it('is a function', function() {
+        expect(htmlTags.getAlertRow).to.be.a('function')
+      })
+    })
+    describe('getRadarImageRow', function() {
+      it('is a function', function() {
+        expect(htmlTags.getRadarImageRow).to.be.a('function')
       })
     })
   })
