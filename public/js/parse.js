@@ -152,7 +152,7 @@ const parse = {
     }
     throw new Error('error result')
   },
-  parseHistoricalSummary: function(data) {
+  parseHistoricalWeather: function(data) {
     if (data.history &&
         data.history.dailysummary &&
         Array.isArray(data.history.dailysummary) &&

@@ -58,7 +58,7 @@ const api = {
     if (keys.length > 0) {
       for (let i = 0; i < keys.length; i++) {
         const path = `/${keys[i]}/q/${location}.json`
-        api.getWeatherInfo(path, parse.parseHistoricalSummary, draw, history)
+        api.getWeatherInfo(path, parse.parseHistoricalWeather, draw, history)
       }
     }
   },

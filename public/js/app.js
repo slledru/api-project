@@ -74,6 +74,9 @@ $(document).ready(() => {
   }
   function displayPlannerPage(event) {
     event.preventDefault()
+    const today = new Date(Date.now())
+    $('#start-date').val(`${today.getMonth() + 1}/${today.getDate()}/${today.getYear() + 1900}`)
+    $('#freq-number').val('7')
     $('#dateRangeModal').modal('show')
     displayPage('planner')
   }
