@@ -75,8 +75,9 @@ $(document).ready(() => {
   function displayPlannerPage(event) {
     event.preventDefault()
     const today = new Date(Date.now())
-    $('#start-date').val(`${today.getMonth() + 1}/${today.getDate()}/${today.getYear() + 1900}`)
+    $('#start-date').val(`${historicData.generateDateString(today)}`)
     $('#freq-number').val('7')
+    $('#message-board').text('Looking back 7 days from today')
     $('#dateRangeModal').modal('show')
     displayPage('planner')
   }

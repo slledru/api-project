@@ -107,9 +107,15 @@ const storage = {
 }
 
 const historicData = {
+  generateDateString: function(date) {
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    return `${('00' + month).slice(-2)}/${('00' + day).slice(-2)}/${year}`
+  },
   generateHistoryString: function(date) {
-    const year = date.getYear() + 1900
-    const month = date.getMonth()
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
     const day = date.getDate()
     return `history_${year}${('00' + month).slice(-2)}${('00' + day).slice(-2)}`
   },
@@ -119,57 +125,67 @@ const historicData = {
             month === 9 ||
             month === 11)
   },
+  addDays(date, days) {
+    const newDate = new Date(date.valueOf())
+    newDate.setDate(newDate.getDate() + parseInt(days))
+    return newDate
+  },
   generateHistoryArray: function(date, total, frequency) {
-    const historyObj = {}
-    let year = date.getYear() + 1900
-    let month = date.getMonth() + 1
-    let day = date.getDate()
+    const dateStringArray = []
     for (let i = 0; i < total; i++) {
+      let month = date.getMonth() + 1
       const dateString = historicData.generateHistoryString(date)
-      // console.log(dateString);
-      historyObj[dateString] = false
+      dateStringArray.unshift(dateString)
       switch (frequency) {
         case 'weeks':
-          day += 7
+          date = historicData.addDays(date, -7)
           break;
         case 'months':
-          if (month === 2) {
-            day += 28
-          } else if (historicData.isThirtyDayMonth(month)) {
-            day += 30
+          if (date.getMonth() <= 0) {
+            date = new Date(date.getFullYear() - 1, 11, date.getDate())
           } else {
-            day += 31
+            date = new Date(date.getFullYear(), date.getMonth() - 1, date.getDate())
           }
           break;
         case 'days':
         default:
-          day += 1
+          date = historicData.addDays(date, -1)
           break;
       }
-      if (month === 2) {
-        if (day > 28) {
-          month += 1
-          day -= 28
-        }
-      } else if (historicData.isThirtyDayMonth(month)) {
-        if (day > 30) {
-          month += 1
-          day -= 30
-        }
-      } else {
-        if (day > 31) {
-          month += 1
-          day -= 31
-        }
-      }
-      if (month > 12) {
-        year += 1
-        month -= 12
-      }
-      date.setDate(day)
-      date.setMonth(month)
-      date.setYear(year)
     }
+    const historyObj = dateStringArray.reduce((acc, element) => {
+      acc[element] = false
+      return acc
+    }, {})
+    return historyObj
+  },
+  generateFutureArray: function(date, total, frequency) {
+    const dateStringArray = []
+    for (let i = 0; i < total; i++) {
+      let month = date.getMonth() + 1
+      const dateString = historicData.generateHistoryString(date)
+      dateStringArray.push(dateString)
+      switch (frequency) {
+        case 'weeks':
+          date = historicData.addDays(date, 7)
+          break;
+        case 'months':
+          if (date.getMonth() >= 11) {
+            date = new Date(date.getYear(), 0, date.getDate())
+          } else {
+            date = new Date(date.getYear(), date.getMonth() + 1, date.getDate())
+          }
+          break;
+        case 'days':
+        default:
+          date = historicData.addDays(date, 1)
+          break;
+      }
+    }
+    const historyObj = dateStringArray.reduce((acc, element) => {
+      acc[element] = false
+      return acc
+    }, {})
     return historyObj
   }
 }

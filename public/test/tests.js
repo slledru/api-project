@@ -162,8 +162,8 @@ describe('Utilities', function() {
       it('is a function', function() {
         expect(historicData.generateHistoryString).to.be.a('function')
       })
-      it('Date(1999, 10, 4)', function() {
-        expect(historicData.generateHistoryString(new Date(1999, 10, 4))).to.be.equal('history_19991004')
+      it('Date(1999, 9, 4), the month is zero-based', function() {
+        expect(historicData.generateHistoryString(new Date(1999, 9, 4))).to.be.equal('history_19991004')
       })
 
     })
@@ -171,7 +171,31 @@ describe('Utilities', function() {
       it('is a function', function() {
         expect(historicData.generateHistoryArray).to.be.a('function')
       })
-
+      it('generateHistoryArray daily', function() {
+        const today = new Date(1990, 0, 12)
+        let result = historicData.generateHistoryArray(today, 3, 'days')
+        expect(result.history_19900110).to.be.equal(false)
+        expect(result.history_19900111).to.be.equal(false)
+        expect(result.history_19900112).to.be.equal(false)
+      })
+      it('generateHistoryArray weekly', function() {
+        const today = new Date(1990, 0, 12)
+        result = historicData.generateHistoryArray(today, 7, 'weeks')
+        expect(result.history_19891201).to.be.equal(false)
+        expect(result.history_19891208).to.be.equal(false)
+        expect(result.history_19891215).to.be.equal(false)
+        expect(result.history_19891222).to.be.equal(false)
+        expect(result.history_19891229).to.be.equal(false)
+        expect(result.history_19900105).to.be.equal(false)
+        expect(result.history_19900112).to.be.equal(false)
+      })
+      it('generateHistoryArray monthly', function() {
+        const today = new Date(1990, 0, 12)
+        result = historicData.generateHistoryArray(today, 3, 'months')
+        expect(result.history_19891112).to.be.equal(false)
+        expect(result.history_19891212).to.be.equal(false)
+        expect(result.history_19900112).to.be.equal(false)
+      })
     })
   })
 })

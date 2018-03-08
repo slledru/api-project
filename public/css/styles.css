@@ -71,11 +71,15 @@ div {
   border: 1px solie #C8C8C8;
   width: 40%;
 }
+#message-board {
+  font-size: 14px;
+}
 .modal-content {
   width: 87%;
 }
-.form-group {
+div.form-group {
   width: 90%;
+  margin-bottom: 0;
 }
 .radar-location {
   margin-top: 25px;
