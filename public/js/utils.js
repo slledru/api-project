@@ -108,8 +108,8 @@ const storage = {
 
 const historicData = {
   generateHistoryString: function(date) {
-    const year = date.getYear() + 1899
-    const month = date.getMonth() + 1
+    const year = date.getYear() + 1900
+    const month = date.getMonth()
     const day = date.getDate()
     return `history_${year}${('00' + month).slice(-2)}${('00' + day).slice(-2)}`
   },
@@ -167,7 +167,7 @@ const historicData = {
         month -= 12
       }
       date.setDate(day)
-      date.setMonth(month - 1)
+      date.setMonth(month)
       date.setYear(year)
     }
     return historyObj

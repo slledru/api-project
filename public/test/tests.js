@@ -10,12 +10,6 @@ const sampleData = {
 }
 
 describe('API', function() {
-  console.log(sampleData.alertCedarvale);
-  console.log(sampleData.currentWeather);
-  console.log(sampleData.historicalSummary);
-  console.log(sampleData.historicalWeather);
-  console.log(sampleData.oneDay);
-  console.log(sampleData.tenDay);
   describe('Parsing methods', function() {
     describe('parseCurrentCondition', function() {
       it('is a function', function() {
@@ -134,9 +128,21 @@ describe('API', function() {
         }
       })
     })
-    describe('parseHistoricalSummary', function() {
+    describe('parseHistoricalWeather', function() {
       it('is a function', function() {
-        expect(parse.parseHistoricalSummary).to.be.a('function')
+        expect(parse.parseHistoricalWeather).to.be.a('function')
+      })
+      it('sampleData.historicalWeather', function() {
+        let result = parse.parseHistoricalWeather(sampleData.historicalWeather)
+        expect(result.dateString).to.be.not.equal(null)
+        expect(result.date).to.be.not.equal(null)
+        expect(result.maxtempi).to.be.not.equal(null)
+        expect(result.maxtempm).to.be.not.equal(null)
+        expect(result.meantempi).to.be.not.equal(null)
+        expect(result.meantempm).to.be.not.equal(null)
+        expect(result.mintempi).to.be.not.equal(null)
+        expect(result.mintempm).to.be.not.equal(null)
+        expect(result.simple).to.be.not.equal(null)
       })
     })
     describe('parseGeoLookup', function() {
@@ -147,6 +153,25 @@ describe('API', function() {
         expect(parse.parseGeoLookup({location: {city: "Boulder", state: "CO"}}))
           .to.be.equal('CO/Boulder')
       })
+    })
+  })
+})
+describe('Utilities', function() {
+  describe('Historic Data String', function() {
+    describe('generateHistoryString', function() {
+      it('is a function', function() {
+        expect(historicData.generateHistoryString).to.be.a('function')
+      })
+      it('Date(1999, 10, 4)', function() {
+        expect(historicData.generateHistoryString(new Date(1999, 10, 4))).to.be.equal('history_19991004')
+      })
+
+    })
+    describe('generateHistoryArray', function() {
+      it('is a function', function() {
+        expect(historicData.generateHistoryArray).to.be.a('function')
+      })
+
     })
   })
 })
