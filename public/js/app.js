@@ -49,6 +49,8 @@ $(document).ready(() => {
     $('#alerts-btn').click(displayAlertsPage)
     $('#location-btn').click(selectLocation)
     $('#date-range-btn').click(selectDateRange)
+    $('#frequency').change(frequencyChange)
+    $('#freq-number').change(frequencyIntervalChange)
   }
   function retrieveWeatherInformation(location) {
     try {
@@ -77,7 +79,7 @@ $(document).ready(() => {
     const today = new Date(Date.now())
     $('#start-date').val(`${historicData.generateDateString(today)}`)
     $('#freq-number').val('7')
-    $('#message-board').text('Looking back 7 days from today')
+    updateMessageBoard()
     $('#dateRangeModal').modal('show')
     displayPage('planner')
   }
@@ -92,6 +94,19 @@ $(document).ready(() => {
     dom.drawWaitCursor();
     displayPage('alerts')
     api.getWeatherAlerts(supplement.appKey, supplement.location, dom.drawWeatherDetailAlerts)
+  }
+  function frequencyChange(event) {
+    event.preventDefault()
+    updateMessageBoard()
+  }
+  function frequencyIntervalChange(event) {
+    event.preventDefault()
+    updateMessageBoard()
+  }
+  function updateMessageBoard() {
+    const freq = $('#frequency').val()
+    const num = $('#freq-number').val()
+    $('#message-board').text(`Looking back ${num} ${freq} from today`)
   }
   function displayPage(pageName) {
     // console.log(`switching to ${pageName}`);
